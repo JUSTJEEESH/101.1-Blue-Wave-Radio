@@ -85,7 +85,8 @@ PBXPROJ
 # Add file references
 swift_files.each do |file|
   filename = File.basename(file)
-  relative_path = file
+  # Remove "BlueWaveRadio/" prefix to make path relative to the group
+  relative_path = file.sub(/^BlueWaveRadio\//, '')
   project_content += "\t\t#{file_refs[file]} /* #{filename} */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = \"#{relative_path}\"; sourceTree = \"<group>\"; };\n"
 end
 

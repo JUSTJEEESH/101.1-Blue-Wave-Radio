@@ -7,48 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF9E02BEF2A84DA897E8F2E3 /* BlueWaveRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */; };
-		09DD0146ADA646A3978511A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57C829A5314152ACC6ED8A /* ContentView.swift */; };
-		6A214560B9794529935AED9E /* MusicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */; };
-		76809F8D0F814E649EAF0643 /* RadioShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */; };
-		8E20ADAF3EEC46B8BB5484B6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42185AC3387C45BEB3508829 /* Restaurant.swift */; };
-		7728E1DAEB7F4846972EFB99 /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */; };
-		3D5A8AD885AB4F3DBC6F5BA0 /* DineOutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */; };
-		BC86497AF1AB46759BF3F12A /* MusicSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */; };
-		B62D153ECB70407CA9F884D4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D51713FC74611B4C6F2DB /* NotificationManager.swift */; };
-		CDFF5741373B443DBD7CA16E /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD826111C0884CA0A756D687 /* Color+Theme.swift */; };
-		54BB422281E94C2BA139F2E7 /* DineOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */; };
-		D828C11A9C9F409D86133A06 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120965FD601C440291933514 /* RestaurantDetailView.swift */; };
-		28F8817C7BBD455F9EDB72FF /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B84D2820744631BF6FF372 /* EventDetailView.swift */; };
-		BFDCAFAC243C477882A02E8B /* MusicSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */; };
-		34A417DA0ED94ED2B62358E4 /* ProgrammingScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */; };
-		EBE209ABE26740F9A70F6D6C /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */; };
-		9D275E2FE5694C29949DA5CC /* StreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462A06B231F44DBB8457F93 /* StreamingView.swift */; };
+		0329DF1460144EF9B0596798 /* BlueWaveRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779448B33CC4441FBF3C12DF /* BlueWaveRadioApp.swift */; };
+		9708345B272E411FBE000820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4E484EF494EB48C76DB96 /* ContentView.swift */; };
+		64532FEAE3FA481090CED30F /* MusicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FDDDBAD7EB4C1CB6C1FA71 /* MusicEvent.swift */; };
+		C45762AB282E4484B99F7B92 /* RadioShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF6C9AE09694058AB95A2EF /* RadioShow.swift */; };
+		524400DB716F4B5FBF98E049 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1378C3DA4494528A3850E22 /* Restaurant.swift */; };
+		8F11D2E1682E412DA2AF71FF /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE174244E2174052884B6F1E /* AudioStreamManager.swift */; };
+		CE5C9FC21DC6499B8947166E /* DineOutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682380864544560948AF6F4 /* DineOutManager.swift */; };
+		A94BA4049E4D4F9CBA8EAF7A /* MusicSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC24B30F3E8542EF8E86F0B0 /* MusicSceneManager.swift */; };
+		96C466959D4F44AC888CF8A7 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B42EF7F20345A48249FFEF /* NotificationManager.swift */; };
+		9E127CE147E045FC9767D539 /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF5ED37039C48BD84B9ED1B /* Color+Theme.swift */; };
+		7128B86468764EB4BAD4B01F /* DineOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF599880220346FEB51B9338 /* DineOutView.swift */; };
+		646B6B4C166A46A994962B99 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6FB11E1E464BE0989CFFC8 /* RestaurantDetailView.swift */; };
+		7AB4AD972F434DDDB2B0E4BF /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05F8D7B37145C4B197EA62 /* EventDetailView.swift */; };
+		CED35AC5E97347E09D9AA7E3 /* MusicSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE071FEBE7964E04BA54FF62 /* MusicSceneView.swift */; };
+		DA7AE6ED3624434C9C395C97 /* ProgrammingScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F5C84AC8941D6AEFF7C80 /* ProgrammingScheduleView.swift */; };
+		599396E2782D41978C740AA3 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCB41EA551F4B4F9D318A82 /* SleepTimerView.swift */; };
+		6E3CB4DD343E474BB53CA38E /* StreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5693BAE7FBA54FF0B6C52640 /* StreamingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/App/BlueWaveRadioApp.swift"; sourceTree = "<group>"; };
-		3E57C829A5314152ACC6ED8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/App/ContentView.swift"; sourceTree = "<group>"; };
-		B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/MusicEvent.swift"; sourceTree = "<group>"; };
-		BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/RadioShow.swift"; sourceTree = "<group>"; };
-		42185AC3387C45BEB3508829 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/Restaurant.swift"; sourceTree = "<group>"; };
-		A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/AudioStreamManager.swift"; sourceTree = "<group>"; };
-		9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/DineOutManager.swift"; sourceTree = "<group>"; };
-		417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/MusicSceneManager.swift"; sourceTree = "<group>"; };
-		F22D51713FC74611B4C6F2DB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/NotificationManager.swift"; sourceTree = "<group>"; };
-		CD826111C0884CA0A756D687 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Utilities/Color+Theme.swift"; sourceTree = "<group>"; };
-		AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/DineOut/DineOutView.swift"; sourceTree = "<group>"; };
-		120965FD601C440291933514 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/DineOut/RestaurantDetailView.swift"; sourceTree = "<group>"; };
-		E0B84D2820744631BF6FF372 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/MusicScene/EventDetailView.swift"; sourceTree = "<group>"; };
-		DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/MusicScene/MusicSceneView.swift"; sourceTree = "<group>"; };
-		1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/ProgrammingScheduleView.swift"; sourceTree = "<group>"; };
-		0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/SleepTimerView.swift"; sourceTree = "<group>"; };
-		4462A06B231F44DBB8457F93 /* StreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/StreamingView.swift"; sourceTree = "<group>"; };
+		38E40461FE624F0CB0A6C1BA /* BlueWaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		779448B33CC4441FBF3C12DF /* BlueWaveRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/BlueWaveRadioApp.swift"; sourceTree = "<group>"; };
+		BFA4E484EF494EB48C76DB96 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/ContentView.swift"; sourceTree = "<group>"; };
+		C1FDDDBAD7EB4C1CB6C1FA71 /* MusicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/MusicEvent.swift"; sourceTree = "<group>"; };
+		FFF6C9AE09694058AB95A2EF /* RadioShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/RadioShow.swift"; sourceTree = "<group>"; };
+		B1378C3DA4494528A3850E22 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Restaurant.swift"; sourceTree = "<group>"; };
+		AE174244E2174052884B6F1E /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/AudioStreamManager.swift"; sourceTree = "<group>"; };
+		F682380864544560948AF6F4 /* DineOutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/DineOutManager.swift"; sourceTree = "<group>"; };
+		AC24B30F3E8542EF8E86F0B0 /* MusicSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/MusicSceneManager.swift"; sourceTree = "<group>"; };
+		D4B42EF7F20345A48249FFEF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/NotificationManager.swift"; sourceTree = "<group>"; };
+		1BF5ED37039C48BD84B9ED1B /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utilities/Color+Theme.swift"; sourceTree = "<group>"; };
+		DF599880220346FEB51B9338 /* DineOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/DineOut/DineOutView.swift"; sourceTree = "<group>"; };
+		9B6FB11E1E464BE0989CFFC8 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/DineOut/RestaurantDetailView.swift"; sourceTree = "<group>"; };
+		BF05F8D7B37145C4B197EA62 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MusicScene/EventDetailView.swift"; sourceTree = "<group>"; };
+		DE071FEBE7964E04BA54FF62 /* MusicSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/MusicScene/MusicSceneView.swift"; sourceTree = "<group>"; };
+		4A8F5C84AC8941D6AEFF7C80 /* ProgrammingScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/ProgrammingScheduleView.swift"; sourceTree = "<group>"; };
+		ABCB41EA551F4B4F9D318A82 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/SleepTimerView.swift"; sourceTree = "<group>"; };
+		5693BAE7FBA54FF0B6C52640 /* StreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/StreamingView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		09FCFEED5F4C42C8987082E1 /* Frameworks */ = {
+		FBAD0830715D4247966DBDD4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,42 +58,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C87F49DE279D4339BE657CBD /* Root */ = {
+		9BE25751E04F4AB1A39FC2F7 /* Root */ = {
 			isa = PBXGroup;
 			children = (
-				CD439410C83348C69284C829 /* BlueWaveRadio */,
-				4B37693C5A594E3EB0E54499 /* Products */,
+				9B675295FE1A4322B490D858 /* BlueWaveRadio */,
+				031930ADC21B4E0998CA3D49 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		4B37693C5A594E3EB0E54499 /* Products */ = {
+		031930ADC21B4E0998CA3D49 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */,
+				38E40461FE624F0CB0A6C1BA /* BlueWaveRadio.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CD439410C83348C69284C829 /* BlueWaveRadio */ = {
+		9B675295FE1A4322B490D858 /* BlueWaveRadio */ = {
 			isa = PBXGroup;
 			children = (
-				FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */,
-				3E57C829A5314152ACC6ED8A /* ContentView.swift */,
-				B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */,
-				BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */,
-				42185AC3387C45BEB3508829 /* Restaurant.swift */,
-				A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */,
-				9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */,
-				417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */,
-				F22D51713FC74611B4C6F2DB /* NotificationManager.swift */,
-				CD826111C0884CA0A756D687 /* Color+Theme.swift */,
-				AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */,
-				120965FD601C440291933514 /* RestaurantDetailView.swift */,
-				E0B84D2820744631BF6FF372 /* EventDetailView.swift */,
-				DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */,
-				1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */,
-				0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */,
-				4462A06B231F44DBB8457F93 /* StreamingView.swift */,
+				779448B33CC4441FBF3C12DF /* BlueWaveRadioApp.swift */,
+				BFA4E484EF494EB48C76DB96 /* ContentView.swift */,
+				C1FDDDBAD7EB4C1CB6C1FA71 /* MusicEvent.swift */,
+				FFF6C9AE09694058AB95A2EF /* RadioShow.swift */,
+				B1378C3DA4494528A3850E22 /* Restaurant.swift */,
+				AE174244E2174052884B6F1E /* AudioStreamManager.swift */,
+				F682380864544560948AF6F4 /* DineOutManager.swift */,
+				AC24B30F3E8542EF8E86F0B0 /* MusicSceneManager.swift */,
+				D4B42EF7F20345A48249FFEF /* NotificationManager.swift */,
+				1BF5ED37039C48BD84B9ED1B /* Color+Theme.swift */,
+				DF599880220346FEB51B9338 /* DineOutView.swift */,
+				9B6FB11E1E464BE0989CFFC8 /* RestaurantDetailView.swift */,
+				BF05F8D7B37145C4B197EA62 /* EventDetailView.swift */,
+				DE071FEBE7964E04BA54FF62 /* MusicSceneView.swift */,
+				4A8F5C84AC8941D6AEFF7C80 /* ProgrammingScheduleView.swift */,
+				ABCB41EA551F4B4F9D318A82 /* SleepTimerView.swift */,
+				5693BAE7FBA54FF0B6C52640 /* StreamingView.swift */,
 			);
 			path = BlueWaveRadio;
 			sourceTree = "<group>";
@@ -101,12 +101,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2FE6C8F2B5A841988BCF1665 /* BlueWaveRadio */ = {
+		1B4B39923A264D62924D7C34 /* BlueWaveRadio */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2CA244204B0346958B7FDAE3 /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */;
+			buildConfigurationList = 2AB14A257D2240858443FB0F /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */;
 			buildPhases = (
-				F868F24B69F74A63ADD14D19 /* Sources */,
-				09FCFEED5F4C42C8987082E1 /* Frameworks */,
+				3C9434A046A3459484DD1FFB /* Sources */,
+				FBAD0830715D4247966DBDD4 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -114,20 +114,20 @@
 			);
 			name = BlueWaveRadio;
 			productName = BlueWaveRadio;
-			productReference = 55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */;
+			productReference = 38E40461FE624F0CB0A6C1BA /* BlueWaveRadio.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F1D235BA6A26484B9BAA3D24 /* Project object */ = {
+		D39BDB7915D2470CB29EB631 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 			};
-			buildConfigurationList = 103FC8CF5D564DE8BE9A028A /* Build configuration list for PBXProject "BlueWaveRadio" */;
+			buildConfigurationList = CBEF51644133454CBCD9D3CD /* Build configuration list for PBXProject "BlueWaveRadio" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -135,45 +135,45 @@
 				en,
 				Base,
 			);
-			mainGroup = C87F49DE279D4339BE657CBD;
-			productRefGroup = 4B37693C5A594E3EB0E54499 /* Products */;
+			mainGroup = 9BE25751E04F4AB1A39FC2F7;
+			productRefGroup = 031930ADC21B4E0998CA3D49 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2FE6C8F2B5A841988BCF1665 /* BlueWaveRadio */,
+				1B4B39923A264D62924D7C34 /* BlueWaveRadio */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F868F24B69F74A63ADD14D19 /* Sources */ = {
+		3C9434A046A3459484DD1FFB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF9E02BEF2A84DA897E8F2E3 /* BlueWaveRadioApp.swift in Sources */,
-				09DD0146ADA646A3978511A3 /* ContentView.swift in Sources */,
-				6A214560B9794529935AED9E /* MusicEvent.swift in Sources */,
-				76809F8D0F814E649EAF0643 /* RadioShow.swift in Sources */,
-				8E20ADAF3EEC46B8BB5484B6 /* Restaurant.swift in Sources */,
-				7728E1DAEB7F4846972EFB99 /* AudioStreamManager.swift in Sources */,
-				3D5A8AD885AB4F3DBC6F5BA0 /* DineOutManager.swift in Sources */,
-				BC86497AF1AB46759BF3F12A /* MusicSceneManager.swift in Sources */,
-				B62D153ECB70407CA9F884D4 /* NotificationManager.swift in Sources */,
-				CDFF5741373B443DBD7CA16E /* Color+Theme.swift in Sources */,
-				54BB422281E94C2BA139F2E7 /* DineOutView.swift in Sources */,
-				D828C11A9C9F409D86133A06 /* RestaurantDetailView.swift in Sources */,
-				28F8817C7BBD455F9EDB72FF /* EventDetailView.swift in Sources */,
-				BFDCAFAC243C477882A02E8B /* MusicSceneView.swift in Sources */,
-				34A417DA0ED94ED2B62358E4 /* ProgrammingScheduleView.swift in Sources */,
-				EBE209ABE26740F9A70F6D6C /* SleepTimerView.swift in Sources */,
-				9D275E2FE5694C29949DA5CC /* StreamingView.swift in Sources */,
+				0329DF1460144EF9B0596798 /* BlueWaveRadioApp.swift in Sources */,
+				9708345B272E411FBE000820 /* ContentView.swift in Sources */,
+				64532FEAE3FA481090CED30F /* MusicEvent.swift in Sources */,
+				C45762AB282E4484B99F7B92 /* RadioShow.swift in Sources */,
+				524400DB716F4B5FBF98E049 /* Restaurant.swift in Sources */,
+				8F11D2E1682E412DA2AF71FF /* AudioStreamManager.swift in Sources */,
+				CE5C9FC21DC6499B8947166E /* DineOutManager.swift in Sources */,
+				A94BA4049E4D4F9CBA8EAF7A /* MusicSceneManager.swift in Sources */,
+				96C466959D4F44AC888CF8A7 /* NotificationManager.swift in Sources */,
+				9E127CE147E045FC9767D539 /* Color+Theme.swift in Sources */,
+				7128B86468764EB4BAD4B01F /* DineOutView.swift in Sources */,
+				646B6B4C166A46A994962B99 /* RestaurantDetailView.swift in Sources */,
+				7AB4AD972F434DDDB2B0E4BF /* EventDetailView.swift in Sources */,
+				CED35AC5E97347E09D9AA7E3 /* MusicSceneView.swift in Sources */,
+				DA7AE6ED3624434C9C395C97 /* ProgrammingScheduleView.swift in Sources */,
+				599396E2782D41978C740AA3 /* SleepTimerView.swift in Sources */,
+				6E3CB4DD343E474BB53CA38E /* StreamingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		9707A1A8FA924CCD9132A625 /* Debug */ = {
+		D80EC8A76E3C4FE5BD280023 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -202,7 +202,7 @@
 			};
 			name = Debug;
 		};
-		7B89E591FF774F3C96D18687 /* Release */ = {
+		03AB819F3A3B4676A54D509E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -235,25 +235,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2CA244204B0346958B7FDAE3 /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */ = {
+		2AB14A257D2240858443FB0F /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9707A1A8FA924CCD9132A625 /* Debug */,
-				7B89E591FF774F3C96D18687 /* Release */,
+				D80EC8A76E3C4FE5BD280023 /* Debug */,
+				03AB819F3A3B4676A54D509E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		103FC8CF5D564DE8BE9A028A /* Build configuration list for PBXProject "BlueWaveRadio" */ = {
+		CBEF51644133454CBCD9D3CD /* Build configuration list for PBXProject "BlueWaveRadio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9707A1A8FA924CCD9132A625 /* Debug */,
-				7B89E591FF774F3C96D18687 /* Release */,
+				D80EC8A76E3C4FE5BD280023 /* Debug */,
+				03AB819F3A3B4676A54D509E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F1D235BA6A26484B9BAA3D24 /* Project object */;
+	rootObject = D39BDB7915D2470CB29EB631 /* Project object */;
 }
