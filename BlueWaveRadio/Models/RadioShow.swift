@@ -40,10 +40,79 @@ struct RadioShow: Identifiable, Codable, Hashable {
     var timeRange: String {
         "\(startTime) - \(endTime)"
     }
+
+    // Check if this show is currently airing
+    func isCurrentlyAiring() -> Bool {
+        let now = Date()
+        let calendar = Calendar.current
+        let currentDay = calendar.component(.weekday, from: now)
+
+        // Check if today matches the show's day of week
+        let showDays = parseDayOfWeek()
+        guard showDays.contains(currentDay) else {
+            return false
+        }
+
+        // Parse times and check if current time is within the show's time range
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+
+        guard let startDate = formatter.date(from: startTime),
+              let endDate = formatter.date(from: endTime) else {
+            return false
+        }
+
+        // Get current time components
+        let currentHour = calendar.component(.hour, from: now)
+        let currentMinute = calendar.component(.minute, from: now)
+
+        // Get show time components
+        let startHour = calendar.component(.hour, from: startDate)
+        let startMinute = calendar.component(.minute, from: startDate)
+        let endHour = calendar.component(.hour, from: endDate)
+        let endMinute = calendar.component(.minute, from: endDate)
+
+        // Create comparable time values (minutes since midnight)
+        let currentTimeInMinutes = currentHour * 60 + currentMinute
+        let startTimeInMinutes = startHour * 60 + startMinute
+        let endTimeInMinutes = endHour * 60 + endMinute
+
+        return currentTimeInMinutes >= startTimeInMinutes && currentTimeInMinutes < endTimeInMinutes
+    }
+
+    // Parse dayOfWeek string to weekday numbers (1 = Sunday, 2 = Monday, etc.)
+    private func parseDayOfWeek() -> [Int] {
+        let lowercased = dayOfWeek.lowercased()
+
+        if lowercased.contains("daily") || lowercased.contains("every day") {
+            return [1, 2, 3, 4, 5, 6, 7] // All days
+        } else if lowercased.contains("monday-friday") || lowercased.contains("weekday") {
+            return [2, 3, 4, 5, 6] // Monday through Friday
+        } else if lowercased.contains("weekend") {
+            return [1, 7] // Saturday and Sunday
+        } else {
+            // Parse individual days
+            var days: [Int] = []
+            if lowercased.contains("sunday") { days.append(1) }
+            if lowercased.contains("monday") { days.append(2) }
+            if lowercased.contains("tuesday") { days.append(3) }
+            if lowercased.contains("wednesday") { days.append(4) }
+            if lowercased.contains("thursday") { days.append(5) }
+            if lowercased.contains("friday") { days.append(6) }
+            if lowercased.contains("saturday") { days.append(7) }
+            return days
+        }
+    }
 }
 
 // Hardcoded programming schedule
 extension RadioShow {
+    // Get the currently airing show
+    static func getCurrentShow() -> RadioShow? {
+        return schedule.first { $0.isCurrentlyAiring() }
+    }
+
     static let schedule: [RadioShow] = [
         RadioShow(
             name: "Madison and Martina por la Manana",
