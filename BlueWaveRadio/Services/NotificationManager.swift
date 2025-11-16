@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import UserNotifications
+@preconcurrency import UserNotifications
 import Combine
 
 @MainActor
@@ -40,8 +40,9 @@ class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterD
 
     private func checkAuthorizationStatus() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
+            let isAuth = settings.authorizationStatus == .authorized
             Task { @MainActor in
-                self.isAuthorized = settings.authorizationStatus == .authorized
+                self.isAuthorized = isAuth
             }
         }
     }
