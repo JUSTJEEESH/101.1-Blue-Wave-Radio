@@ -1,0 +1,92 @@
+======================================
+PUSH BLUE WAVE RADIO APP TO GITHUB
+======================================
+
+OPTION 1: Run the Script (Easiest)
+-----------------------------------
+
+1. Open Terminal
+2. Copy and paste this command:
+
+   /Users/joshgreen/Documents/101.1-Blue-Wave-Radio/push-to-github.sh
+
+3. Press Enter
+4. When asked for credentials:
+   - Username: JUSTJEEESH
+   - Password: Your Personal Access Token
+
+
+OPTION 2: Manual Commands (Copy/Paste)
+---------------------------------------
+
+1. Open Terminal
+2. Copy and paste each line below (one at a time):
+
+cd /Users/joshgreen/Documents/101.1-Blue-Wave-Radio
+
+git remote remove origin
+
+git remote add origin https://github.com/JUSTJEEESH/101.1-Blue-Wave-Radio.git
+
+git push -u origin claude/blue-wave-radio-app-01TP6D9mtSdPUt9a3fhj7Ddz
+
+
+3. When asked for credentials:
+   - Username: JUSTJEEESH
+   - Password: Your Personal Access Token (NOT your GitHub password)
+
+
+=======================================
+AFTER PUSHING - CLONE IN XCODE
+=======================================
+
+1. Open Xcode
+2. Close any open projects
+3. File → Clone... (or from Welcome screen)
+4. Paste this URL:
+
+   https://github.com/JUSTJEEESH/101.1-Blue-Wave-Radio.git
+
+5. Click "Clone"
+6. Choose where to save (e.g., Desktop)
+7. Wait for it to download
+8. Done! ✅
+
+
+=======================================
+NEED A PERSONAL ACCESS TOKEN?
+=======================================
+
+If you don't have a GitHub Personal Access Token:
+
+1. Go to: https://github.com/settings/tokens
+2. Click "Generate new token" → "Classic"
+3. Name it: "Xcode Access"
+4. Check: ✅ repo
+5. Click "Generate token"
+6. COPY THE TOKEN and save it (you won't see it again!)
+7. Use this token as your password
+
+
+=======================================
+TROUBLESHOOTING
+=======================================
+
+❌ "Authentication failed"
+   → Use Personal Access Token, not password
+
+❌ "Remote already exists"
+   → Run: git remote remove origin
+   → Then try again
+
+❌ "Permission denied"
+   → Make sure you're logged into GitHub
+   → Check your token has 'repo' permissions
+
+❌ Still stuck?
+   → Email the token/credentials issue screenshot
+   → Or try running the script again
+
+
+Your repository URL:
+https://github.com/JUSTJEEESH/101.1-Blue-Wave-Radio
