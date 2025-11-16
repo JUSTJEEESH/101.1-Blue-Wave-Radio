@@ -127,7 +127,8 @@ class AudioStreamManager: NSObject, ObservableObject {
         )
 
         // Check for metadata in player item
-        if let metadata = playerItem.asset.metadata {
+        let metadata = playerItem.asset.metadata
+        if !metadata.isEmpty {
             parseMetadata(metadata)
         }
     }
@@ -135,12 +136,14 @@ class AudioStreamManager: NSObject, ObservableObject {
     @objc private func handleMetadataChange(_ notification: Notification) {
         guard let playerItem = playerItem else { return }
 
-        if let metadata = playerItem.asset.metadata {
+        let metadata = playerItem.asset.metadata
+        if !metadata.isEmpty {
             parseMetadata(metadata)
         }
 
         // Try to get Icy metadata from the stream
-        if let timedMetadata = playerItem.timedMetadata {
+        let timedMetadata = playerItem.timedMetadata
+        if !timedMetadata.isEmpty {
             for item in timedMetadata {
                 if let value = item.value(forKey: "value") as? String {
                     parseIcyMetadata(value)
