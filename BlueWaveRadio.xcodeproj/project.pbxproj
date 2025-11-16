@@ -1,0 +1,259 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF9E02BEF2A84DA897E8F2E3 /* BlueWaveRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */; };
+		09DD0146ADA646A3978511A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57C829A5314152ACC6ED8A /* ContentView.swift */; };
+		6A214560B9794529935AED9E /* MusicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */; };
+		76809F8D0F814E649EAF0643 /* RadioShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */; };
+		8E20ADAF3EEC46B8BB5484B6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42185AC3387C45BEB3508829 /* Restaurant.swift */; };
+		7728E1DAEB7F4846972EFB99 /* AudioStreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */; };
+		3D5A8AD885AB4F3DBC6F5BA0 /* DineOutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */; };
+		BC86497AF1AB46759BF3F12A /* MusicSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */; };
+		B62D153ECB70407CA9F884D4 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22D51713FC74611B4C6F2DB /* NotificationManager.swift */; };
+		CDFF5741373B443DBD7CA16E /* Color+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD826111C0884CA0A756D687 /* Color+Theme.swift */; };
+		54BB422281E94C2BA139F2E7 /* DineOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */; };
+		D828C11A9C9F409D86133A06 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120965FD601C440291933514 /* RestaurantDetailView.swift */; };
+		28F8817C7BBD455F9EDB72FF /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B84D2820744631BF6FF372 /* EventDetailView.swift */; };
+		BFDCAFAC243C477882A02E8B /* MusicSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */; };
+		34A417DA0ED94ED2B62358E4 /* ProgrammingScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */; };
+		EBE209ABE26740F9A70F6D6C /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */; };
+		9D275E2FE5694C29949DA5CC /* StreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4462A06B231F44DBB8457F93 /* StreamingView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/App/BlueWaveRadioApp.swift"; sourceTree = "<group>"; };
+		3E57C829A5314152ACC6ED8A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/App/ContentView.swift"; sourceTree = "<group>"; };
+		B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/MusicEvent.swift"; sourceTree = "<group>"; };
+		BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/RadioShow.swift"; sourceTree = "<group>"; };
+		42185AC3387C45BEB3508829 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Models/Restaurant.swift"; sourceTree = "<group>"; };
+		A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/AudioStreamManager.swift"; sourceTree = "<group>"; };
+		9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/DineOutManager.swift"; sourceTree = "<group>"; };
+		417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/MusicSceneManager.swift"; sourceTree = "<group>"; };
+		F22D51713FC74611B4C6F2DB /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Services/NotificationManager.swift"; sourceTree = "<group>"; };
+		CD826111C0884CA0A756D687 /* Color+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Utilities/Color+Theme.swift"; sourceTree = "<group>"; };
+		AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/DineOut/DineOutView.swift"; sourceTree = "<group>"; };
+		120965FD601C440291933514 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/DineOut/RestaurantDetailView.swift"; sourceTree = "<group>"; };
+		E0B84D2820744631BF6FF372 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/MusicScene/EventDetailView.swift"; sourceTree = "<group>"; };
+		DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/MusicScene/MusicSceneView.swift"; sourceTree = "<group>"; };
+		1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/ProgrammingScheduleView.swift"; sourceTree = "<group>"; };
+		0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/SleepTimerView.swift"; sourceTree = "<group>"; };
+		4462A06B231F44DBB8457F93 /* StreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BlueWaveRadio/Views/Streaming/StreamingView.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		09FCFEED5F4C42C8987082E1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C87F49DE279D4339BE657CBD /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				CD439410C83348C69284C829 /* BlueWaveRadio */,
+				4B37693C5A594E3EB0E54499 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B37693C5A594E3EB0E54499 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD439410C83348C69284C829 /* BlueWaveRadio */ = {
+			isa = PBXGroup;
+			children = (
+				FE0CD2DC43414F41BFF205AF /* BlueWaveRadioApp.swift */,
+				3E57C829A5314152ACC6ED8A /* ContentView.swift */,
+				B4AD8AF652F4413BA52E35FA /* MusicEvent.swift */,
+				BD6FF628C3BA4BCEA51B582E /* RadioShow.swift */,
+				42185AC3387C45BEB3508829 /* Restaurant.swift */,
+				A752EA63BE9A47C497B39241 /* AudioStreamManager.swift */,
+				9F62C94FBAB2467F96D4D58E /* DineOutManager.swift */,
+				417C6418A8D448FDA97BE5B1 /* MusicSceneManager.swift */,
+				F22D51713FC74611B4C6F2DB /* NotificationManager.swift */,
+				CD826111C0884CA0A756D687 /* Color+Theme.swift */,
+				AB6E3394EF2245D2B62B3F25 /* DineOutView.swift */,
+				120965FD601C440291933514 /* RestaurantDetailView.swift */,
+				E0B84D2820744631BF6FF372 /* EventDetailView.swift */,
+				DD5C2FD664C547F29DAC4383 /* MusicSceneView.swift */,
+				1B9FA391F5FE479F94C9D22A /* ProgrammingScheduleView.swift */,
+				0D6924DEE4D84D15826BC722 /* SleepTimerView.swift */,
+				4462A06B231F44DBB8457F93 /* StreamingView.swift */,
+			);
+			path = BlueWaveRadio;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2FE6C8F2B5A841988BCF1665 /* BlueWaveRadio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CA244204B0346958B7FDAE3 /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */;
+			buildPhases = (
+				F868F24B69F74A63ADD14D19 /* Sources */,
+				09FCFEED5F4C42C8987082E1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlueWaveRadio;
+			productName = BlueWaveRadio;
+			productReference = 55427BA2FC874F4EAC22373C /* BlueWaveRadio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F1D235BA6A26484B9BAA3D24 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 103FC8CF5D564DE8BE9A028A /* Build configuration list for PBXProject "BlueWaveRadio" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C87F49DE279D4339BE657CBD;
+			productRefGroup = 4B37693C5A594E3EB0E54499 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2FE6C8F2B5A841988BCF1665 /* BlueWaveRadio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F868F24B69F74A63ADD14D19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF9E02BEF2A84DA897E8F2E3 /* BlueWaveRadioApp.swift in Sources */,
+				09DD0146ADA646A3978511A3 /* ContentView.swift in Sources */,
+				6A214560B9794529935AED9E /* MusicEvent.swift in Sources */,
+				76809F8D0F814E649EAF0643 /* RadioShow.swift in Sources */,
+				8E20ADAF3EEC46B8BB5484B6 /* Restaurant.swift in Sources */,
+				7728E1DAEB7F4846972EFB99 /* AudioStreamManager.swift in Sources */,
+				3D5A8AD885AB4F3DBC6F5BA0 /* DineOutManager.swift in Sources */,
+				BC86497AF1AB46759BF3F12A /* MusicSceneManager.swift in Sources */,
+				B62D153ECB70407CA9F884D4 /* NotificationManager.swift in Sources */,
+				CDFF5741373B443DBD7CA16E /* Color+Theme.swift in Sources */,
+				54BB422281E94C2BA139F2E7 /* DineOutView.swift in Sources */,
+				D828C11A9C9F409D86133A06 /* RestaurantDetailView.swift in Sources */,
+				28F8817C7BBD455F9EDB72FF /* EventDetailView.swift in Sources */,
+				BFDCAFAC243C477882A02E8B /* MusicSceneView.swift in Sources */,
+				34A417DA0ED94ED2B62358E4 /* ProgrammingScheduleView.swift in Sources */,
+				EBE209ABE26740F9A70F6D6C /* SleepTimerView.swift in Sources */,
+				9D275E2FE5694C29949DA5CC /* StreamingView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		9707A1A8FA924CCD9132A625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BlueWaveRadio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluewaveradio.BlueWaveRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B89E591FF774F3C96D18687 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = BlueWaveRadio/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bluewaveradio.BlueWaveRadio;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CA244204B0346958B7FDAE3 /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9707A1A8FA924CCD9132A625 /* Debug */,
+				7B89E591FF774F3C96D18687 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		103FC8CF5D564DE8BE9A028A /* Build configuration list for PBXProject "BlueWaveRadio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9707A1A8FA924CCD9132A625 /* Debug */,
+				7B89E591FF774F3C96D18687 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F1D235BA6A26484B9BAA3D24 /* Project object */;
+}
