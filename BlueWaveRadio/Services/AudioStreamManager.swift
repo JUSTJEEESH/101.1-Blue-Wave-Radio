@@ -84,8 +84,10 @@ class AudioStreamManager: NSObject, ObservableObject {
 
         if minutes > 0 {
             sleepTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(minutes * 60), repeats: false) { [weak self] _ in
-                self?.pause()
-                self?.sleepTimerMinutes = 0
+                Task { @MainActor in
+                    self?.pause()
+                    self?.sleepTimerMinutes = 0
+                }
             }
         }
     }
@@ -128,41 +130,34 @@ class AudioStreamManager: NSObject, ObservableObject {
         )
 
         // Check for metadata in player item
-        let metadata = playerItem.asset.metadata
-        if !metadata.isEmpty {
-            parseMetadata(metadata)
+        Task {
+            if let metadata = try? await playerItem.asset.load(.metadata), !metadata.isEmpty {
+                await parseMetadata(metadata)
+            }
         }
     }
 
     @objc private func handleMetadataChange(_ notification: Notification) {
         guard let playerItem = playerItem else { return }
 
-        let metadata = playerItem.asset.metadata
-        if !metadata.isEmpty {
-            parseMetadata(metadata)
-        }
-
-        // Try to get Icy metadata from the stream
-        if let timedMetadata = playerItem.timedMetadata, !timedMetadata.isEmpty {
-            for item in timedMetadata {
-                if let value = item.value(forKey: "value") as? String {
-                    parseIcyMetadata(value)
-                }
+        Task {
+            if let metadata = try? await playerItem.asset.load(.metadata), !metadata.isEmpty {
+                await parseMetadata(metadata)
             }
         }
     }
 
-    private func parseMetadata(_ metadata: [AVMetadataItem]) {
+    private func parseMetadata(_ metadata: [AVMetadataItem]) async {
         for item in metadata {
-            if let commonKey = item.commonKey, let value = item.value {
+            if let commonKey = item.commonKey {
                 switch commonKey {
                 case .commonKeyTitle:
-                    if let title = value as? String {
-                        currentTrack = title
+                    if let value = try? await item.load(.value) as? String {
+                        currentTrack = value
                     }
                 case .commonKeyArtist:
-                    if let artist = value as? String {
-                        currentArtist = artist
+                    if let value = try? await item.load(.value) as? String {
+                        currentArtist = value
                     }
                 default:
                     break
@@ -239,28 +234,30 @@ class AudioStreamManager: NSObject, ObservableObject {
 
     // MARK: - KVO
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == "status" {
-            if let status = playerItem?.status {
-                switch status {
-                case .readyToPlay:
-                    isBuffering = false
-                case .failed:
-                    isBuffering = false
-                    isPlaying = false
-                    print("Player failed: \(String(describing: playerItem?.error))")
-                default:
-                    break
+    nonisolated override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        Task { @MainActor in
+            if keyPath == "status" {
+                if let status = playerItem?.status {
+                    switch status {
+                    case .readyToPlay:
+                        isBuffering = false
+                    case .failed:
+                        isBuffering = false
+                        isPlaying = false
+                        print("Player failed: \(String(describing: playerItem?.error))")
+                    default:
+                        break
+                    }
                 }
+            } else if keyPath == "playbackBufferEmpty" {
+                isBuffering = true
+            } else if keyPath == "playbackLikelyToKeepUp" {
+                isBuffering = false
             }
-        } else if keyPath == "playbackBufferEmpty" {
-            isBuffering = true
-        } else if keyPath == "playbackLikelyToKeepUp" {
-            isBuffering = false
         }
     }
 
-    deinit {
+    func cleanup() {
         sleepTimer?.invalidate()
         if let observer = timeObserver {
             player?.removeTimeObserver(observer)
@@ -268,5 +265,11 @@ class AudioStreamManager: NSObject, ObservableObject {
         playerItem?.removeObserver(self, forKeyPath: "status")
         playerItem?.removeObserver(self, forKeyPath: "playbackBufferEmpty")
         playerItem?.removeObserver(self, forKeyPath: "playbackLikelyToKeepUp")
+    }
+
+    nonisolated deinit {
+        // Clean up resources on deinit
+        // Note: Cannot safely access actor-isolated properties from deinit
+        // Observer cleanup will happen when player is deallocated
     }
 }

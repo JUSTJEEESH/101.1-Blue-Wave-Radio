@@ -45,7 +45,7 @@ struct BlueWaveRadioApp: App {
     private func configureAudioSession() {
         do {
             let audioSession = AVAudioSession.sharedInstance()
-            try audioSession.setCategory(.playback, mode: .default, options: [.allowAirPlay, .allowBluetooth])
+            try audioSession.setCategory(.playback, mode: .default, options: [.allowAirPlay, .allowBluetoothA2DP])
             try audioSession.setActive(true)
         } catch {
             print("Failed to configure audio session: \(error)")
