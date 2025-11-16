@@ -10,6 +10,7 @@ import AVFoundation
 import MediaPlayer
 import Combine
 
+@MainActor
 class AudioStreamManager: NSObject, ObservableObject {
     static let shared = AudioStreamManager()
 
@@ -142,8 +143,7 @@ class AudioStreamManager: NSObject, ObservableObject {
         }
 
         // Try to get Icy metadata from the stream
-        let timedMetadata = playerItem.timedMetadata
-        if !timedMetadata.isEmpty {
+        if let timedMetadata = playerItem.timedMetadata, !timedMetadata.isEmpty {
             for item in timedMetadata {
                 if let value = item.value(forKey: "value") as? String {
                     parseIcyMetadata(value)

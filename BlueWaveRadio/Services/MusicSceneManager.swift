@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class MusicSceneManager: ObservableObject {
     private let musicSceneURL = URL(string: "https://www.bluewaveradio.live/roatanmusicscene")!
     private let cacheKey = "cached_music_events"

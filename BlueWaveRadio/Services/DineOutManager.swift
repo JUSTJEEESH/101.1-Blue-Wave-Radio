@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class DineOutManager: ObservableObject {
     private let dineOutURL = URL(string: "https://www.dineoutroatan.com/")!
     private let cacheKey = "cached_restaurants"

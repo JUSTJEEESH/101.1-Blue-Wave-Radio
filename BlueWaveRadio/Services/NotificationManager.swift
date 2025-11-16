@@ -9,6 +9,7 @@ import Foundation
 import UserNotifications
 import Combine
 
+@MainActor
 class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationManager()
 
