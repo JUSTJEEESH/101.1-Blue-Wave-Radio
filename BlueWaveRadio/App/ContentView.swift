@@ -29,6 +29,12 @@ struct ContentView: View {
                     Label("Dine Out", systemImage: "fork.knife")
                 }
                 .tag(2)
+
+            FavoritesView()
+                .tabItem {
+                    Label("Favorites", systemImage: "heart.fill")
+                }
+                .tag(3)
         }
         .tint(Color.accentTurquoise)
     }

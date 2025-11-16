@@ -67,6 +67,10 @@ class MusicSceneManager: ObservableObject {
         }
     }
 
+    func favoriteEvents() -> [MusicEvent] {
+        events.filter { $0.isFavorite }
+    }
+
     // MARK: - Parsing
 
     private func parseEvents(from html: String) -> [MusicEvent] {
