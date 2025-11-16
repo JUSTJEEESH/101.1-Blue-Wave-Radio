@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import Observation
+import Combine
 
-@Observable
-class DineOutManager {
+class DineOutManager: ObservableObject {
     private let dineOutURL = URL(string: "https://www.dineoutroatan.com/")!
     private let cacheKey = "cached_restaurants"
     private let lastUpdateKey = "restaurants_last_update"
 
-    var restaurants: [Restaurant] = []
-    var isLoading = false
-    var lastUpdated: Date?
-    var errorMessage: String?
+    @Published var restaurants: [Restaurant] = []
+    @Published var isLoading = false
+    @Published var lastUpdated: Date?
+    @Published var errorMessage: String?
 
     init() {
         loadCachedRestaurants()

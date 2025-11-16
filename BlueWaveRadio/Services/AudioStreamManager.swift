@@ -8,10 +8,9 @@
 import Foundation
 import AVFoundation
 import MediaPlayer
-import Observation
+import Combine
 
-@Observable
-class AudioStreamManager: NSObject {
+class AudioStreamManager: NSObject, ObservableObject {
     static let shared = AudioStreamManager()
 
     // Stream configuration
@@ -23,14 +22,14 @@ class AudioStreamManager: NSObject {
     private var timeObserver: Any?
 
     // State
-    var isPlaying = false
-    var isBuffering = false
-    var currentTrack: String = "101.1 Blue Wave Radio"
-    var currentArtist: String = "Roatan"
-    var volume: Float = 0.75
+    @Published var isPlaying = false
+    @Published var isBuffering = false
+    @Published var currentTrack: String = "101.1 Blue Wave Radio"
+    @Published var currentArtist: String = "Roatan"
+    @Published var volume: Float = 0.75
 
     // Sleep timer
-    var sleepTimerMinutes: Int = 0
+    @Published var sleepTimerMinutes: Int = 0
     private var sleepTimer: Timer?
 
     private override init() {

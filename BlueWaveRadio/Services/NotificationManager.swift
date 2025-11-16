@@ -7,13 +7,12 @@
 
 import Foundation
 import UserNotifications
-import Observation
+import Combine
 
-@Observable
-class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
+class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterDelegate {
     static let shared = NotificationManager()
 
-    var isAuthorized = false
+    @Published var isAuthorized = false
 
     override init() {
         super.init()

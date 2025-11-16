@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import Observation
+import Combine
 
-@Observable
-class MusicSceneManager {
+class MusicSceneManager: ObservableObject {
     private let musicSceneURL = URL(string: "https://www.bluewaveradio.live/roatanmusicscene")!
     private let cacheKey = "cached_music_events"
     private let lastUpdateKey = "music_events_last_update"
 
-    var events: [MusicEvent] = []
-    var isLoading = false
-    var lastUpdated: Date?
-    var errorMessage: String?
+    @Published var events: [MusicEvent] = []
+    @Published var isLoading = false
+    @Published var lastUpdated: Date?
+    @Published var errorMessage: String?
 
     init() {
         loadCachedEvents()
