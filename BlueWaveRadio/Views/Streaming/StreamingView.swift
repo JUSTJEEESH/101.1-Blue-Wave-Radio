@@ -36,7 +36,7 @@ struct StreamingView: View {
                             .fill(Color.white.opacity(0.2))
                             .frame(width: 220, height: 220)
 
-                        Image(systemName: "radiowaves.left.and.right")
+                        Image(systemName: "iphone.radiowaves.left.and.right")
                             .font(.system(size: 80))
                             .foregroundColor(.white)
                             .symbolEffect(.variableColor.iterative, isActive: audioManager.isPlaying)

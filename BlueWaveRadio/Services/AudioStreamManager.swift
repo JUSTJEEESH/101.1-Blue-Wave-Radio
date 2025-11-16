@@ -229,7 +229,7 @@ class AudioStreamManager: NSObject, ObservableObject {
     private func createRadioWaveImage() -> UIImage? {
         // Create a simple placeholder image with SF Symbol
         let config = UIImage.SymbolConfiguration(pointSize: 200, weight: .regular)
-        return UIImage(systemName: "radiowaves.left.and.right", withConfiguration: config)
+        return UIImage(systemName: "iphone.radiowaves.left.and.right", withConfiguration: config)
     }
 
     // MARK: - KVO

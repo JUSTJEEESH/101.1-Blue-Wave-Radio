@@ -140,7 +140,7 @@ extension RadioShow {
             description: "An hour of the greatest rock ever made—from The Beatles to Led Zeppelin.",
             sponsor: "Sotheby's Roatan Island Real Estate",
             dayOfWeek: "Monday-Friday",
-            iconName: "guitars.fill"
+            iconName: "guitars"
         ),
         RadioShow(
             name: "Salsa at Sunset",
