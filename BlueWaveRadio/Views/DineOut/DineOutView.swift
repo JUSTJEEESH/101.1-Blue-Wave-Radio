@@ -30,16 +30,28 @@ struct DineOutView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Area Picker
+                // Area Grid
                 if searchText.isEmpty {
-                    Picker("Island Area", selection: $selectedArea) {
-                        ForEach(IslandArea.allCases) { area in
-                            Text(area.displayName).tag(area)
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(IslandArea.allCases) { area in
+                                AreaCard(
+                                    area: area,
+                                    isSelected: selectedArea == area,
+                                    restaurantCount: dineOutManager.restaurantsByArea(area).count
+                                )
+                                .onTapGesture {
+                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                        selectedArea = area
+                                    }
+                                }
+                            }
                         }
+                        .padding(.horizontal)
+                        .padding(.vertical, 12)
                     }
-                    .pickerStyle(.segmented)
-                    .padding()
                     .background(Color(.systemBackground))
+                    .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 2)
                 }
 
                 // Restaurant List
@@ -121,6 +133,60 @@ struct DineOutView: View {
                 }
             }
         }
+    }
+}
+
+// MARK: - Area Card
+struct AreaCard: View {
+    let area: IslandArea
+    let isSelected: Bool
+    let restaurantCount: Int
+
+    var areaIcon: String {
+        switch area {
+        case .westEnd: return "sunset.fill"
+        case .westBay: return "water.waves"
+        case .sandy: return "beach.umbrella.fill"
+        case .french: return "ferry.fill"
+        case .oak: return "tree.fill"
+        case .east: return "sunrise.fill"
+        }
+    }
+
+    var body: some View {
+        VStack(spacing: 8) {
+            ZStack {
+                Circle()
+                    .fill(isSelected ? Color.primaryBlue : Color.primaryBlue.opacity(0.1))
+                    .frame(width: 50, height: 50)
+
+                Image(systemName: areaIcon)
+                    .font(.title3)
+                    .foregroundColor(isSelected ? .white : .primaryBlue)
+            }
+
+            Text(area.displayName)
+                .font(.system(size: 13, weight: isSelected ? .semibold : .medium))
+                .foregroundColor(isSelected ? .primary : .secondary)
+                .lineLimit(2)
+                .multilineTextAlignment(.center)
+
+            Text("\(restaurantCount)")
+                .font(.caption2)
+                .foregroundColor(isSelected ? .accentTurquoise : .secondary)
+                .fontWeight(.medium)
+        }
+        .frame(width: 85)
+        .padding(.vertical, 12)
+        .padding(.horizontal, 8)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(isSelected ? Color.primaryBlue.opacity(0.08) : Color(.systemGray6))
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .strokeBorder(isSelected ? Color.primaryBlue : Color.clear, lineWidth: 2)
+        )
     }
 }
 
