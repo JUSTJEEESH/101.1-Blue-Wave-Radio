@@ -11,6 +11,10 @@ struct StreamingView: View {
     @EnvironmentObject var audioManager: AudioStreamManager
     @State private var showSchedule = false
     @State private var showSleepTimer = false
+    @State private var currentShow: RadioShow?
+
+    // Timer to update current show periodically
+    let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 
     var body: some View {
         NavigationStack {
@@ -49,6 +53,20 @@ struct StreamingView: View {
                         Text("Roatan, Honduras")
                             .font(.subheadline)
                             .foregroundColor(.white.opacity(0.8))
+
+                        // Current Show
+                        if let show = currentShow {
+                            Text(show.name)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                                .padding(.top, 4)
+                        } else {
+                            Text("101.1 Blue Wave Radio")
+                                .font(.headline)
+                                .foregroundColor(.white.opacity(0.9))
+                                .padding(.top, 4)
+                        }
                     }
 
                     // Now Playing
@@ -181,7 +199,17 @@ struct StreamingView: View {
             .sheet(isPresented: $showSleepTimer) {
                 SleepTimerView(audioManager: audioManager, isPresented: $showSleepTimer)
             }
+            .onAppear {
+                updateCurrentShow()
+            }
+            .onReceive(timer) { _ in
+                updateCurrentShow()
+            }
         }
+    }
+
+    private func updateCurrentShow() {
+        currentShow = RadioShow.getCurrentShow()
     }
 }
 
