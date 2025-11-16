@@ -1,0 +1,51 @@
+/*
+  Localizable.strings
+  Blue Wave Radio Roatan
+
+  English localization
+*/
+
+/* Navigation */
+"nav.radio" = "Radio";
+"nav.musicScene" = "Music Scene";
+"nav.dineOut" = "Dine Out";
+
+/* Streaming */
+"streaming.title" = "Live Radio";
+"streaming.station" = "101.1 Blue Wave Radio";
+"streaming.location" = "Roatan, Honduras";
+"streaming.buffering" = "Buffering...";
+"streaming.play" = "Play";
+"streaming.pause" = "Pause";
+"streaming.skipBack" = "Skip back 10 seconds";
+"streaming.skipForward" = "Skip forward 30 seconds";
+"streaming.schedule" = "Show schedule";
+"streaming.sleepTimer" = "Sleep timer";
+"streaming.volume" = "Volume";
+
+/* Music Scene */
+"music.title" = "Music Scene";
+"music.search" = "Search events...";
+"music.noEvents" = "No Events Found";
+"music.loading" = "Loading music events...";
+"music.addToCalendar" = "Add to Calendar";
+"music.setReminder" = "Set Reminder";
+"music.share" = "Share Event";
+
+/* Dine Out */
+"dine.title" = "Dine Out Roatan";
+"dine.search" = "Search cuisine or name...";
+"dine.noRestaurants" = "No Restaurants Found";
+"dine.loading" = "Loading restaurants...";
+"dine.featured" = "Featured Partners";
+"dine.viewFacebook" = "View on Facebook";
+"dine.share" = "Share Restaurant";
+
+/* Common */
+"common.done" = "Done";
+"common.cancel" = "Cancel";
+"common.ok" = "OK";
+"common.favorites" = "Favorites";
+"common.addToFavorites" = "Add to Favorites";
+"common.removeFromFavorites" = "Remove from Favorites";
+"common.updated" = "Updated";

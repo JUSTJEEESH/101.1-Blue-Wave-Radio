@@ -1,0 +1,208 @@
+//
+//  DineOutView.swift
+//  Blue Wave Radio Roatan
+//
+//  Restaurant listings view
+//
+
+import SwiftUI
+
+struct DineOutView: View {
+    @EnvironmentObject var dineOutManager: DineOutManager
+    @State private var selectedArea: IslandArea = .westEnd
+    @State private var searchText = ""
+    @State private var selectedRestaurant: Restaurant?
+
+    var displayedRestaurants: [Restaurant] {
+        let baseList = searchText.isEmpty ?
+            dineOutManager.restaurantsByArea(selectedArea) :
+            dineOutManager.searchRestaurants(query: searchText)
+
+        return baseList.sorted { lhs, rhs in
+            // Sponsored restaurants first
+            if lhs.isSponsored != rhs.isSponsored {
+                return lhs.isSponsored
+            }
+            return lhs.name < rhs.name
+        }
+    }
+
+    var body: some View {
+        NavigationStack {
+            VStack(spacing: 0) {
+                // Area Picker
+                if searchText.isEmpty {
+                    Picker("Island Area", selection: $selectedArea) {
+                        ForEach(IslandArea.allCases) { area in
+                            Text(area.displayName).tag(area)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .padding()
+                    .background(Color(.systemBackground))
+                }
+
+                // Restaurant List
+                if dineOutManager.isLoading && dineOutManager.restaurants.isEmpty {
+                    VStack(spacing: 16) {
+                        ProgressView()
+                        Text("Loading restaurants...")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                    }
+                    .frame(maxHeight: .infinity)
+                } else if displayedRestaurants.isEmpty {
+                    ContentUnavailableView(
+                        "No Restaurants Found",
+                        systemImage: "fork.knife",
+                        description: Text(searchText.isEmpty ?
+                            "No restaurants in this area" :
+                            "No restaurants match your search")
+                    )
+                } else {
+                    List {
+                        // Sponsored section
+                        let sponsored = displayedRestaurants.filter { $0.isSponsored }
+                        if !sponsored.isEmpty {
+                            Section {
+                                ForEach(sponsored) { restaurant in
+                                    RestaurantRow(restaurant: restaurant)
+                                        .contentShape(Rectangle())
+                                        .onTapGesture {
+                                            selectedRestaurant = restaurant
+                                        }
+                                }
+                            } header: {
+                                Label("Featured Partners", systemImage: "star.fill")
+                                    .foregroundColor(.accentTurquoise)
+                            }
+                        }
+
+                        // Regular restaurants
+                        let regular = displayedRestaurants.filter { !$0.isSponsored }
+                        if !regular.isEmpty {
+                            Section {
+                                ForEach(regular) { restaurant in
+                                    RestaurantRow(restaurant: restaurant)
+                                        .contentShape(Rectangle())
+                                        .onTapGesture {
+                                            selectedRestaurant = restaurant
+                                        }
+                                }
+                            } header: {
+                                if !sponsored.isEmpty {
+                                    Text("All Restaurants")
+                                }
+                            }
+                        }
+                    }
+                    .refreshable {
+                        await dineOutManager.fetchRestaurants()
+                    }
+                }
+            }
+            .navigationTitle("Dine Out Roatan")
+            .searchable(text: $searchText, prompt: "Search cuisine or name...")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if let lastUpdated = dineOutManager.lastUpdated {
+                        Text("Updated \(lastUpdated.formatted(.relative(presentation: .numeric)))")
+                            .font(.caption2)
+                            .foregroundColor(.secondary)
+                    }
+                }
+            }
+            .sheet(item: $selectedRestaurant) { restaurant in
+                RestaurantDetailView(restaurant: restaurant)
+            }
+            .task {
+                if dineOutManager.restaurants.isEmpty {
+                    await dineOutManager.fetchRestaurants()
+                }
+            }
+        }
+    }
+}
+
+struct RestaurantRow: View {
+    @EnvironmentObject var dineOutManager: DineOutManager
+    let restaurant: Restaurant
+
+    var body: some View {
+        HStack(alignment: .top, spacing: 12) {
+            // Icon
+            ZStack {
+                Circle()
+                    .fill(Color.primaryBlue.opacity(0.2))
+                    .frame(width: 50, height: 50)
+
+                Image(systemName: "fork.knife")
+                    .font(.title3)
+                    .foregroundColor(.primaryBlue)
+
+                if restaurant.isSponsored {
+                    Image(systemName: "star.fill")
+                        .font(.caption2)
+                        .foregroundColor(.accentTurquoise)
+                        .offset(x: 18, y: -18)
+                }
+            }
+
+            VStack(alignment: .leading, spacing: 6) {
+                // Restaurant name
+                Text(restaurant.name)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+
+                // Cuisine
+                Text(restaurant.cuisineString)
+                    .font(.subheadline)
+                    .foregroundColor(.accentTurquoise)
+
+                // Area
+                HStack(spacing: 4) {
+                    Image(systemName: "map.fill")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text(restaurant.area.displayName)
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+
+                // Contact
+                if restaurant.contact.hasContact {
+                    HStack(spacing: 8) {
+                        if restaurant.contact.phone != nil {
+                            Label("Call", systemImage: "phone.fill")
+                                .font(.caption2)
+                                .foregroundColor(.green)
+                        }
+                        if restaurant.facebookURL != nil {
+                            Label("Facebook", systemImage: "link")
+                                .font(.caption2)
+                                .foregroundColor(.blue)
+                        }
+                    }
+                }
+            }
+
+            Spacer()
+
+            // Favorite button
+            Button(action: {
+                dineOutManager.toggleFavorite(restaurant)
+            }) {
+                Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
+                    .font(.title3)
+                    .foregroundColor(restaurant.isFavorite ? .red : .gray)
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.vertical, 8)
+    }
+}
+
+#Preview {
+    DineOutView()
+        .environmentObject(DineOutManager())
+}
