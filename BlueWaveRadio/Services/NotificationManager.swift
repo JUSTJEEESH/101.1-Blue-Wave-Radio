@@ -17,8 +17,10 @@ class NotificationManager: NSObject, ObservableObject, UNUserNotificationCenterD
 
     override init() {
         super.init()
-        UNUserNotificationCenter.current().delegate = self
-        checkAuthorizationStatus()
+        Task {
+            UNUserNotificationCenter.current().delegate = self
+            checkAuthorizationStatus()
+        }
     }
 
     // MARK: - Authorization
