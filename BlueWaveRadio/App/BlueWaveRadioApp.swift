@@ -14,6 +14,7 @@ struct BlueWaveRadioApp: App {
     @StateObject private var musicSceneManager = MusicSceneManager()
     @StateObject private var dineOutManager = DineOutManager()
     @StateObject private var notificationManager = NotificationManager()
+    @StateObject private var weatherManager = WeatherManager.shared
 
     init() {
         // Configure audio session
@@ -32,6 +33,7 @@ struct BlueWaveRadioApp: App {
                 .environmentObject(musicSceneManager)
                 .environmentObject(dineOutManager)
                 .environmentObject(notificationManager)
+                .environmentObject(weatherManager)
                 .onAppear {
                     // Start background refresh tasks
                     Task {
