@@ -13,6 +13,10 @@ extension Color {
     static let accentTurquoise = Color(red: 0/255, green: 191/255, blue: 255/255) // #00BFFF
     static let neutralSand = Color(red: 245/255, green: 245/255, blue: 220/255) // #F5F5DC
 
+    // Streaming view specific colors (keep the original blue gradient)
+    static let streamingGradientTop = Color(red: 0/255, green: 51/255, blue: 102/255) // #003366 - Dark Navy
+    static let streamingGradientBottom = Color(red: 0/255, green: 191/255, blue: 255/255) // #00BFFF - Turquoise
+
     // Semantic colors
     static let stationPrimary = primaryBlue
     static let stationAccent = accentTurquoise

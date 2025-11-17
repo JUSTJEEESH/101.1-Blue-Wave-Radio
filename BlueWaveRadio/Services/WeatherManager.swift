@@ -48,32 +48,41 @@ class WeatherManager: ObservableObject {
     // MARK: - Public Methods
 
     func fetchWeather() async {
-        isLoading = true
+        await MainActor.run {
+            isLoading = true
+        }
 
         let units = useMetric ? "metric" : "imperial"
         let urlString = "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&units=\(units)&appid=\(apiKey)"
 
         guard let url = URL(string: urlString) else {
-            isLoading = false
+            await MainActor.run {
+                isLoading = false
+            }
             return
         }
 
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let response = try JSONDecoder().decode(WeatherResponse.self, from: data)
-            currentWeather = response.weather
-            lastUpdated = Date()
-            isLoading = false
+
+            await MainActor.run {
+                currentWeather = response.weather
+                lastUpdated = Date()
+                isLoading = false
+            }
         } catch {
             print("Weather fetch error: \(error)")
-            isLoading = false
+            await MainActor.run {
+                isLoading = false
+            }
         }
     }
 
     func toggleUnits() {
         useMetric.toggle()
-        // Refresh weather with new units
-        Task {
+        // Immediately refresh weather with new units
+        Task { @MainActor in
             await fetchWeather()
         }
     }
