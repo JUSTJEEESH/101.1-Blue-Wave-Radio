@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234F16003C1B4F9EBB32C0E2 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592AE6ADF4994275963EDA9A /* WeatherManager.swift */; };
+		F82CE1B927984847990A2154 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D751BE88BB064C309617D006 /* Weather.swift */; };
+		3DA11C1125AD4915812197BA /* WeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C208C7B9AA71489FA0A9F865 /* WeatherWidget.swift */; };
+		726AB5AAE5044FFABBDF1194 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCA9C076EAE4F33B079D6C5 /* SettingsView.swift */; };
 		5EA61E45D11E43C49AB6B7EA /* BlueWaveRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1B1EE79654BEAAAB70414 /* BlueWaveRadioApp.swift */; };
 		10C9CE797ED34C53B46398E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9346ABEDB44EBF87CE5185 /* ContentView.swift */; };
 		FC1FFFD78A4D45FB9692F786 /* MusicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DE2EE67714F7D991EA9C4 /* MusicEvent.swift */; };
@@ -28,6 +32,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		592AE6ADF4994275963EDA9A /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/WeatherManager.swift"; sourceTree = "<group>"; };
+		D751BE88BB064C309617D006 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Weather.swift"; sourceTree = "<group>"; };
+		C208C7B9AA71489FA0A9F865 /* WeatherWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/WeatherWidget.swift"; sourceTree = "<group>"; };
+		BFCA9C076EAE4F33B079D6C5 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Settings/SettingsView.swift"; sourceTree = "<group>"; };
 		489E6FB27D0840A596CCDAE3 /* BlueWaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17A1B1EE79654BEAAAB70414 /* BlueWaveRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/BlueWaveRadioApp.swift"; sourceTree = "<group>"; };
 		AD9346ABEDB44EBF87CE5185 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/ContentView.swift"; sourceTree = "<group>"; };
@@ -171,6 +179,10 @@
 				0725C12F22EA46AD9F9BC855 /* ProgrammingScheduleView.swift in Sources */,
 				E514DFC900E44FF28DE42C35 /* SleepTimerView.swift in Sources */,
 				11193B12A1BA4167A3F70FDF /* StreamingView.swift in Sources */,
+				234F16003C1B4F9EBB32C0E2 /* WeatherManager.swift in Sources */,
+				F82CE1B927984847990A2154 /* Weather.swift in Sources */,
+				3DA11C1125AD4915812197BA /* WeatherWidget.swift in Sources */,
+				726AB5AAE5044FFABBDF1194 /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
