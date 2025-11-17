@@ -7,17 +7,44 @@
 
 import SwiftUI
 
+enum TimePeriodFilter: String, CaseIterable {
+    case fullWeek = "Full Week"
+    case weekend = "Weekend"
+    case today = "Today"
+}
+
 struct MusicSceneView: View {
     @EnvironmentObject var musicSceneManager: MusicSceneManager
     @EnvironmentObject var notificationManager: NotificationManager
     @State private var searchText = ""
     @State private var selectedEvent: MusicEvent?
     @State private var selectedArea = "All Areas"
+    @State private var selectedTimePeriod: TimePeriodFilter = .fullWeek
 
     let areas = ["All Areas", "West End", "West Bay", "Sandy Bay", "French Harbour", "Oak Ridge", "Punta Gorda", "East End"]
 
     var filteredEvents: [MusicEvent] {
         var events = musicSceneManager.events
+
+        // Filter by time period
+        let now = Date()
+        let calendar = Calendar.current
+
+        switch selectedTimePeriod {
+        case .today:
+            events = events.filter { event in
+                calendar.isDateInToday(event.dateTime)
+            }
+        case .weekend:
+            events = events.filter { event in
+                let weekday = calendar.component(.weekday, from: event.dateTime)
+                // Saturday (7) or Sunday (1)
+                return weekday == 1 || weekday == 7
+            }
+        case .fullWeek:
+            // Show all events (no date filtering)
+            break
+        }
 
         // Filter by area
         if selectedArea != "All Areas" {
@@ -51,6 +78,31 @@ struct MusicSceneView: View {
                 .pickerStyle(.menu)
                 .padding(.horizontal)
                 .padding(.vertical, 8)
+                .background(Color(.systemGroupedBackground))
+
+                // Time Period Filter Buttons
+                HStack(spacing: 12) {
+                    ForEach(TimePeriodFilter.allCases, id: \.self) { period in
+                        Button(action: {
+                            withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                                selectedTimePeriod = period
+                            }
+                        }) {
+                            Text(period.rawValue)
+                                .font(.subheadline)
+                                .fontWeight(selectedTimePeriod == period ? .semibold : .regular)
+                                .foregroundColor(selectedTimePeriod == period ? .white : .primaryBlue)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 20)
+                                        .fill(selectedTimePeriod == period ? Color.primaryBlue : Color.primaryBlue.opacity(0.1))
+                                )
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 12)
                 .background(Color(.systemGroupedBackground))
 
                 ZStack {

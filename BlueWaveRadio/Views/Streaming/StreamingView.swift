@@ -18,6 +18,22 @@ struct StreamingView: View {
     // Timer to update current show periodically
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
 
+    // Computed property to determine what to display as the main title
+    private var displayTitle: String {
+        // Prioritize current show name if available
+        if let show = currentShow {
+            return show.name
+        }
+        // If stream has track info, show that
+        else if !audioManager.currentTrack.isEmpty &&
+                audioManager.currentTrack != "Loading..." &&
+                audioManager.currentTrack != "101.1 Blue Wave Radio" {
+            return audioManager.currentTrack
+        }
+        // Fallback to station name
+        return "101.1 Blue Wave Radio"
+    }
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -55,23 +71,17 @@ struct StreamingView: View {
 
                     // Station Info
                     VStack(spacing: 8) {
-                        Text("101.1 Blue Wave Radio")
+                        // Show current track/show name or fallback to station name
+                        Text(displayTitle)
                             .font(.title2)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
+                            .multilineTextAlignment(.center)
+                            .lineLimit(2)
 
                         Text("Roatan, Honduras")
                             .font(.subheadline)
                             .foregroundColor(.white.opacity(0.8))
-
-                        // Current Show
-                        if let show = currentShow {
-                            Text(show.name)
-                                .font(.headline)
-                                .foregroundColor(.white)
-                                .multilineTextAlignment(.center)
-                                .padding(.top, 4)
-                        }
                     }
 
                     // Now Playing
