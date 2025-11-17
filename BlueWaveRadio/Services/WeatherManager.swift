@@ -99,8 +99,4 @@ class WeatherManager: ObservableObject {
             await fetchWeather()
         }
     }
-
-    deinit {
-        refreshTimer?.invalidate()
-    }
 }
