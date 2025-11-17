@@ -105,6 +105,10 @@
 				47FD623F5F064E52A15AC25E /* ProgrammingScheduleView.swift */,
 				F940937F73D04658801431FF /* SleepTimerView.swift */,
 				6A150DF5703044BDA9375DBA /* StreamingView.swift */,
+				592AE6ADF4994275963EDA9A /* WeatherManager.swift */,
+				D751BE88BB064C309617D006 /* Weather.swift */,
+				C208C7B9AA71489FA0A9F865 /* WeatherWidget.swift */,
+				BFCA9C076EAE4F33B079D6C5 /* SettingsView.swift */,
 			);
 			path = BlueWaveRadio;
 			sourceTree = "<group>";
