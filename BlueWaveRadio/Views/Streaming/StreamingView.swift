@@ -9,8 +9,10 @@ import SwiftUI
 
 struct StreamingView: View {
     @EnvironmentObject var audioManager: AudioStreamManager
+    @EnvironmentObject var weatherManager: WeatherManager
     @State private var showSchedule = false
     @State private var showSleepTimer = false
+    @State private var showSettings = false
     @State private var currentShow: RadioShow?
 
     // Timer to update current show periodically
@@ -28,6 +30,14 @@ struct StreamingView: View {
                 .ignoresSafeArea()
 
                 VStack(spacing: 30) {
+                    // Weather Widget at top
+                    HStack {
+                        Spacer()
+                        WeatherWidget()
+                    }
+                    .padding(.top, 8)
+                    .padding(.trailing, 16)
+
                     Spacer()
 
                     // Album Art / Station Logo
@@ -60,11 +70,6 @@ struct StreamingView: View {
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .multilineTextAlignment(.center)
-                                .padding(.top, 4)
-                        } else {
-                            Text("101.1 Blue Wave Radio")
-                                .font(.headline)
-                                .foregroundColor(.white.opacity(0.9))
                                 .padding(.top, 4)
                         }
                     }
@@ -193,11 +198,24 @@ struct StreamingView: View {
             }
             .navigationTitle("Live Radio")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        showSettings = true
+                    }) {
+                        Image(systemName: "gearshape.fill")
+                            .foregroundColor(.white)
+                    }
+                }
+            }
             .sheet(isPresented: $showSchedule) {
                 ProgrammingScheduleView()
             }
             .sheet(isPresented: $showSleepTimer) {
                 SleepTimerView(audioManager: audioManager, isPresented: $showSleepTimer)
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
             }
             .onAppear {
                 updateCurrentShow()

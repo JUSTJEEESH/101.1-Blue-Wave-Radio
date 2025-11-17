@@ -47,7 +47,7 @@ class AudioStreamManager: NSObject, ObservableObject {
 
         player?.play()
         isPlaying = true
-        isBuffering = true
+        // Don't set isBuffering here - let the KVO observers handle it
         updateNowPlayingInfo()
     }
 
@@ -240,7 +240,10 @@ class AudioStreamManager: NSObject, ObservableObject {
                 if let status = playerItem?.status {
                     switch status {
                     case .readyToPlay:
-                        isBuffering = false
+                        // Only set buffering to false if player is actually ready
+                        if playerItem?.isPlaybackLikelyToKeepUp == true {
+                            isBuffering = false
+                        }
                     case .failed:
                         isBuffering = false
                         isPlaying = false
@@ -250,9 +253,14 @@ class AudioStreamManager: NSObject, ObservableObject {
                     }
                 }
             } else if keyPath == "playbackBufferEmpty" {
-                isBuffering = true
+                // Only show buffering if we're actually playing
+                if isPlaying {
+                    isBuffering = true
+                }
             } else if keyPath == "playbackLikelyToKeepUp" {
-                isBuffering = false
+                if playerItem?.isPlaybackLikelyToKeepUp == true {
+                    isBuffering = false
+                }
             }
         }
     }
