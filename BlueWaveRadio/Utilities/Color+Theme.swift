@@ -9,7 +9,7 @@ import SwiftUI
 
 extension Color {
     // Primary theme colors
-    static let primaryBlue = Color(red: 0/255, green: 51/255, blue: 102/255) // #003366
+    static let primaryBlue = Color(red: 255/255, green: 184/255, blue: 0/255) // #FFB800 - Vibrant Gold
     static let accentTurquoise = Color(red: 0/255, green: 191/255, blue: 255/255) // #00BFFF
     static let neutralSand = Color(red: 245/255, green: 245/255, blue: 220/255) // #F5F5DC
 
@@ -21,6 +21,6 @@ extension Color {
 
 extension UIColor {
     // Primary theme colors for UIKit components
-    static let primaryBlue = UIColor(red: 0/255, green: 51/255, blue: 102/255, alpha: 1.0)
+    static let primaryBlue = UIColor(red: 255/255, green: 184/255, blue: 0/255, alpha: 1.0) // #FFB800 - Vibrant Gold
     static let accentTurquoise = UIColor(red: 0/255, green: 191/255, blue: 255/255, alpha: 1.0)
 }
