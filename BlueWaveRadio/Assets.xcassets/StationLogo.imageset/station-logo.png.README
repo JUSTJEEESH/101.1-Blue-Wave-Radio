@@ -1,0 +1,16 @@
+PLACEHOLDER: Add your station logo image here
+
+To add your actual radio station logo:
+
+1. In Xcode, open the project
+2. In the Project Navigator, find Assets.xcassets
+3. Click on "StationLogo" image set
+4. Drag and drop your logo image (PNG format recommended) into the 1x slot
+5. Optionally add @2x and @3x versions for better quality on different screens
+
+Recommended sizes:
+- 1x: 220x220 pixels
+- 2x: 440x440 pixels  
+- 3x: 660x660 pixels
+
+The logo should have a transparent background and work well on a blue gradient background.
