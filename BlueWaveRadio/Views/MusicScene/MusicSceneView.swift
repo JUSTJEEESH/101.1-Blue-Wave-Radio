@@ -12,16 +12,33 @@ struct MusicSceneView: View {
     @EnvironmentObject var notificationManager: NotificationManager
     @State private var searchText = ""
     @State private var selectedEvent: MusicEvent?
-    @State private var selectedArea = "All Areas"
+    @State private var selectedTimeFilter: TimeFilter = .fullWeek
 
-    let areas = ["All Areas", "West End", "West Bay", "Sandy Bay", "French Harbour", "Oak Ridge", "Punta Gorda", "East End"]
+    enum TimeFilter: String, CaseIterable {
+        case today = "Today"
+        case weekend = "Weekend"
+        case fullWeek = "Full Week"
+    }
 
     var filteredEvents: [MusicEvent] {
         var events = musicSceneManager.events
+        let calendar = Calendar.current
+        let now = Date()
 
-        // Filter by area
-        if selectedArea != "All Areas" {
-            events = events.filter { $0.area == selectedArea }
+        // Filter by time period
+        switch selectedTimeFilter {
+        case .today:
+            events = events.filter { event in
+                calendar.isDate(event.dateTime, inSameDayAs: now)
+            }
+        case .weekend:
+            events = events.filter { event in
+                let weekday = calendar.component(.weekday, from: event.dateTime)
+                return weekday == 1 || weekday == 6 || weekday == 7 // Sunday=1, Friday=6, Saturday=7
+            }
+        case .fullWeek:
+            // Show all events
+            break
         }
 
         // Filter by search text
@@ -42,15 +59,25 @@ struct MusicSceneView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-                // Area Picker
-                Picker("Area", selection: $selectedArea) {
-                    ForEach(areas, id: \.self) { area in
-                        Text(area).tag(area)
+                // Time Filter Buttons
+                HStack(spacing: 12) {
+                    ForEach(TimeFilter.allCases, id: \.self) { filter in
+                        Button(action: {
+                            selectedTimeFilter = filter
+                        }) {
+                            Text(filter.rawValue)
+                                .font(.subheadline)
+                                .fontWeight(.medium)
+                                .foregroundColor(selectedTimeFilter == filter ? .white : .primaryBlue)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(selectedTimeFilter == filter ? Color.primaryBlue : Color.primaryBlue.opacity(0.1))
+                                .cornerRadius(8)
+                        }
                     }
                 }
-                .pickerStyle(.menu)
                 .padding(.horizontal)
-                .padding(.vertical, 8)
+                .padding(.vertical, 12)
                 .background(Color(.systemGroupedBackground))
 
                 ZStack {
@@ -65,9 +92,9 @@ struct MusicSceneView: View {
                         ContentUnavailableView(
                             "No Events Found",
                             systemImage: "music.note.list",
-                            description: Text(searchText.isEmpty && selectedArea == "All Areas" ?
+                            description: Text(searchText.isEmpty ?
                                 "A snapshot of Roatan's Music Scene… Who's playing where and when…" :
-                                "No events match your filters")
+                                "No events match your search")
                         )
                     } else {
                         List {
