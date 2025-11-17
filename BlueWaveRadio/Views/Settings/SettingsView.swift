@@ -31,7 +31,7 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         Spacer()
                         Text(weatherManager.useMetric ? "Metric (°C)" : "Imperial (°F)")
-                            .foregroundColor(.primaryBlue)
+                            .foregroundColor(.accentGold)
                     }
                 }
 
@@ -98,7 +98,7 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         Spacer()
                         Text("1.0.0")
-                            .foregroundColor(.primaryBlue)
+                            .foregroundColor(.accentGold)
                     }
 
                     HStack {
@@ -106,7 +106,7 @@ struct SettingsView: View {
                             .foregroundColor(.secondary)
                         Spacer()
                         Text("Roatan, Honduras")
-                            .foregroundColor(.primaryBlue)
+                            .foregroundColor(.accentGold)
                     }
                 }
             }
@@ -147,14 +147,14 @@ struct AdvertiseView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Reach the Roatan Community")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
 
                     Text("101.1 Blue Wave Radio is the premier radio station in Roatan, Honduras. We reach thousands of listeners daily with a diverse mix of music, news, and entertainment.")
                         .font(.body)
 
                     Text("Advertising Opportunities")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
                         .padding(.top, 8)
 
                     VStack(alignment: .leading, spacing: 8) {
@@ -166,7 +166,7 @@ struct AdvertiseView: View {
 
                     Text("Contact Our Sales Team")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
                         .padding(.top, 8)
 
                     VStack(alignment: .leading, spacing: 8) {
@@ -212,7 +212,7 @@ struct ContactView: View {
                 VStack(alignment: .leading, spacing: 16) {
                     Text("Get in Touch")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
 
                     VStack(alignment: .leading, spacing: 12) {
                         ContactRow(icon: "building.2.fill", title: "Station", value: "101.1 Blue Wave Radio")
@@ -224,7 +224,7 @@ struct ContactView: View {
 
                     Text("Studio Hours")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
                         .padding(.top, 8)
 
                     VStack(alignment: .leading, spacing: 4) {
@@ -235,7 +235,7 @@ struct ContactView: View {
 
                     Text("Social Media")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
                         .padding(.top, 8)
 
                     HStack(spacing: 20) {
@@ -361,7 +361,7 @@ struct LicensingView: View {
 
                     Text("For licensing inquiries, contact:")
                         .font(.headline)
-                        .foregroundColor(.primaryBlue)
+                        .foregroundColor(.accentGold)
                         .padding(.top, 8)
 
                     Text("legal@bluewaveradio.hn")
@@ -404,6 +404,7 @@ struct ContactRow: View {
                     .foregroundColor(.secondary)
                 Text(value)
                     .font(.body)
+                    .foregroundColor(.accentGold)
             }
         }
     }
@@ -432,7 +433,7 @@ struct PolicySection: View {
         VStack(alignment: .leading, spacing: 8) {
             Text(title)
                 .font(.headline)
-                .foregroundColor(.primaryBlue)
+                .foregroundColor(.accentGold)
             Text(content)
                 .font(.body)
                 .foregroundColor(.primary)

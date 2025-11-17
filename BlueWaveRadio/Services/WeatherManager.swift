@@ -21,6 +21,10 @@ class WeatherManager: ObservableObject {
     @Published var useMetric: Bool {
         didSet {
             UserDefaults.standard.set(useMetric, forKey: "weatherUseMetric")
+            // Refetch weather with new units
+            Task {
+                await fetchWeather()
+            }
         }
     }
 
@@ -61,7 +65,7 @@ class WeatherManager: ObservableObject {
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
             let response = try JSONDecoder().decode(WeatherResponse.self, from: data)
-            currentWeather = response.weather
+            currentWeather = response.toWeather
             lastUpdated = Date()
             isLoading = false
         } catch {
@@ -98,9 +102,5 @@ class WeatherManager: ObservableObject {
         Task {
             await fetchWeather()
         }
-    }
-
-    deinit {
-        refreshTimer?.invalidate()
     }
 }

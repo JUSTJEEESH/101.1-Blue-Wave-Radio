@@ -48,11 +48,11 @@ struct StreamingView: View {
                 VStack(spacing: 30) {
                     // Weather Widget at top
                     HStack {
-                        Spacer()
                         WeatherWidget()
+                        Spacer()
                     }
                     .padding(.top, 8)
-                    .padding(.trailing, 16)
+                    .padding(.leading, 16)
 
                     Spacer()
 
@@ -244,4 +244,5 @@ struct StreamingView: View {
 #Preview {
     StreamingView()
         .environmentObject(AudioStreamManager.shared)
+        .environmentObject(WeatherManager.shared)
 }

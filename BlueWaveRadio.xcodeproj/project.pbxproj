@@ -25,6 +25,10 @@
 		0725C12F22EA46AD9F9BC855 /* ProgrammingScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD623F5F064E52A15AC25E /* ProgrammingScheduleView.swift */; };
 		E514DFC900E44FF28DE42C35 /* SleepTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940937F73D04658801431FF /* SleepTimerView.swift */; };
 		11193B12A1BA4167A3F70FDF /* StreamingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A150DF5703044BDA9375DBA /* StreamingView.swift */; };
+		E30F490EA7D7D773169DD46A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80032837ED3D67482674D82F /* Weather.swift */; };
+		C3E3CDDA8BC45BB78788E3A1 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5D13BD0A8B3905D9DD589C /* WeatherManager.swift */; };
+		22826E7326CC87CB61E88C68 /* WeatherWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193A0B8BACF11B9B327CA0B1 /* WeatherWidget.swift */; };
+		03CA2F9DDCDFF8825283DFF2 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E96BDCFF1976401A20CAAB /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		47FD623F5F064E52A15AC25E /* ProgrammingScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/ProgrammingScheduleView.swift"; sourceTree = "<group>"; };
 		F940937F73D04658801431FF /* SleepTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/SleepTimerView.swift"; sourceTree = "<group>"; };
 		6A150DF5703044BDA9375DBA /* StreamingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Streaming/StreamingView.swift"; sourceTree = "<group>"; };
+		80032837ED3D67482674D82F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Models/Weather.swift"; sourceTree = "<group>"; };
+		4F5D13BD0A8B3905D9DD589C /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services/WeatherManager.swift"; sourceTree = "<group>"; };
+		193A0B8BACF11B9B327CA0B1 /* WeatherWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Components/WeatherWidget.swift"; sourceTree = "<group>"; };
+		E5E96BDCFF1976401A20CAAB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views/Settings/SettingsView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +105,11 @@
 				47FD623F5F064E52A15AC25E /* ProgrammingScheduleView.swift */,
 				F940937F73D04658801431FF /* SleepTimerView.swift */,
 				6A150DF5703044BDA9375DBA /* StreamingView.swift */,
-			);
+							80032837ED3D67482674D82F /* Weather.swift */,
+				4F5D13BD0A8B3905D9DD589C /* WeatherManager.swift */,
+				193A0B8BACF11B9B327CA0B1 /* WeatherWidget.swift */,
+				E5E96BDCFF1976401A20CAAB /* SettingsView.swift */,
+);
 			path = BlueWaveRadio;
 			sourceTree = "<group>";
 		};
@@ -171,7 +183,11 @@
 				0725C12F22EA46AD9F9BC855 /* ProgrammingScheduleView.swift in Sources */,
 				E514DFC900E44FF28DE42C35 /* SleepTimerView.swift in Sources */,
 				11193B12A1BA4167A3F70FDF /* StreamingView.swift in Sources */,
-			);
+							E30F490EA7D7D773169DD46A /* Weather.swift in Sources */,
+				C3E3CDDA8BC45BB78788E3A1 /* WeatherManager.swift in Sources */,
+				22826E7326CC87CB61E88C68 /* WeatherWidget.swift in Sources */,
+				03CA2F9DDCDFF8825283DFF2 /* SettingsView.swift in Sources */,
+);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */

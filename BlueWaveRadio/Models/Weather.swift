@@ -53,7 +53,7 @@ struct WeatherResponse: Codable {
         let speed: Double
     }
 
-    var weather: Weather {
+    var toWeather: Weather {
         Weather(
             temperature: main.temp,
             feelsLike: main.feelsLike,

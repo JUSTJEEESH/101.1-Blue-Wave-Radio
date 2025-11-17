@@ -91,7 +91,7 @@ class DineOutManager: ObservableObject {
     // MARK: - Parsing
 
     private func parseRestaurants(from html: String) -> [Restaurant] {
-        var parsedRestaurants: [Restaurant] = []
+        let parsedRestaurants: [Restaurant] = []
 
         // This is a simplified parser for demonstration
         // In production, you'd want a proper HTML parser library

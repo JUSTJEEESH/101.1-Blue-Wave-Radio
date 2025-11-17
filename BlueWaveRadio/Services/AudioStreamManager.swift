@@ -113,7 +113,7 @@ class AudioStreamManager: NSObject, ObservableObject {
 
         // Time observer for progress
         let interval = CMTime(seconds: 1.0, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
-        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { [weak self] time in
+        timeObserver = player?.addPeriodicTimeObserver(forInterval: interval, queue: .main) { _ in
             // Update any time-based UI here
         }
     }
