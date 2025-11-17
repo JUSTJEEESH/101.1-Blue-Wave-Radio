@@ -57,7 +57,7 @@ struct ProgrammingScheduleView: View {
                             HStack {
                                 Image(systemName: dayIconName(for: dayGroup.day))
                                     .font(.title3)
-                                    .foregroundColor(.accentGold)
+                                    .foregroundColor(.accentTurquoise)
                                     .frame(width: 30)
 
                                 Text(dayGroup.day)
@@ -126,7 +126,7 @@ struct ShowRow: View {
             // Icon
             Image(systemName: show.iconName)
                 .font(.title3)
-                .foregroundColor(.accentGold)
+                .foregroundColor(.accentTurquoise)
                 .frame(width: 35)
 
             VStack(alignment: .leading, spacing: 6) {

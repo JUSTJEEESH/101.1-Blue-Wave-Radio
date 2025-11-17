@@ -39,7 +39,7 @@ struct StreamingView: View {
             ZStack {
                 // Background gradient
                 LinearGradient(
-                    colors: [Color.primaryBlue, Color.accentTurquoise],
+                    colors: [Color.darkBlue, Color.accentTurquoise],
                     startPoint: .top,
                     endPoint: .bottom
                 )
