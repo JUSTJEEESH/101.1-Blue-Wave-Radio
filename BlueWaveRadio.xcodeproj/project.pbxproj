@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ASSETS001ASSETS001ASSETS001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ASSETSREFASSETSREFASSETS /* Assets.xcassets */; };
 		5EA61E45D11E43C49AB6B7EA /* BlueWaveRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1B1EE79654BEAAAB70414 /* BlueWaveRadioApp.swift */; };
 		10C9CE797ED34C53B46398E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9346ABEDB44EBF87CE5185 /* ContentView.swift */; };
 		FC1FFFD78A4D45FB9692F786 /* MusicEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DE2EE67714F7D991EA9C4 /* MusicEvent.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ASSETSREFASSETSREFASSETS /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		489E6FB27D0840A596CCDAE3 /* BlueWaveRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueWaveRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17A1B1EE79654BEAAAB70414 /* BlueWaveRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/BlueWaveRadioApp.swift"; sourceTree = "<group>"; };
 		AD9346ABEDB44EBF87CE5185 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App/ContentView.swift"; sourceTree = "<group>"; };
@@ -67,6 +69,17 @@
 		};
 /* End PBXFrameworksBuildPhase section */
 
+/* Begin PBXResourcesBuildPhase section */
+		RESOURCES001RESOURCES001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ASSETS001ASSETS001ASSETS001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXGroup section */
 		8A248C0074164031BEBCE342 /* Root */ = {
 			isa = PBXGroup;
@@ -87,6 +100,7 @@
 		DD878C9FE1B14565BAC82B74 /* BlueWaveRadio */ = {
 			isa = PBXGroup;
 			children = (
+				ASSETSREFASSETSREFASSETS /* Assets.xcassets */,
 				17A1B1EE79654BEAAAB70414 /* BlueWaveRadioApp.swift */,
 				AD9346ABEDB44EBF87CE5185 /* ContentView.swift */,
 				165DE2EE67714F7D991EA9C4 /* MusicEvent.swift */,
@@ -120,6 +134,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32A85BC48DAF4E5C85B9060D /* Build configuration list for PBXNativeTarget "BlueWaveRadio" */;
 			buildPhases = (
+				RESOURCES001RESOURCES001 /* Resources */,
 				8711F87ED6394734AB0AB756 /* Sources */,
 				D14485698FC4401EB483514D /* Frameworks */,
 			);
