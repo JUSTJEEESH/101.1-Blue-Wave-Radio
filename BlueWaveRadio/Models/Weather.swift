@@ -27,7 +27,7 @@ struct Weather: Codable {
 
 struct WeatherResponse: Codable {
     let main: MainWeather
-    let weather: [WeatherCondition]
+    let conditions: [WeatherCondition]
     let wind: Wind
 
     struct MainWeather: Codable {
@@ -53,12 +53,18 @@ struct WeatherResponse: Codable {
         let speed: Double
     }
 
+    enum CodingKeys: String, CodingKey {
+        case main
+        case conditions = "weather"
+        case wind
+    }
+
     var weather: Weather {
         Weather(
             temperature: main.temp,
             feelsLike: main.feelsLike,
-            condition: weather.first?.main ?? "Clear",
-            conditionId: weather.first?.id ?? 800,
+            condition: conditions.first?.main ?? "Clear",
+            conditionId: conditions.first?.id ?? 800,
             humidity: main.humidity,
             windSpeed: wind.speed
         )
