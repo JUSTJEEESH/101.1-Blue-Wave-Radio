@@ -21,6 +21,10 @@ class WeatherManager: ObservableObject {
     @Published var useMetric: Bool {
         didSet {
             UserDefaults.standard.set(useMetric, forKey: "weatherUseMetric")
+            // Refetch weather with new units
+            Task {
+                await fetchWeather()
+            }
         }
     }
 
