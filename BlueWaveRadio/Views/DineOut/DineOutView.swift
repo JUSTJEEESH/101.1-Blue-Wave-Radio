@@ -30,6 +30,33 @@ struct DineOutView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
+                // Search Bar
+                HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.secondary)
+
+                        TextField("Search cuisine or name...", text: $searchText)
+                            .textFieldStyle(.plain)
+
+                        if !searchText.isEmpty {
+                            Button(action: {
+                                searchText = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                    }
+                    .padding(10)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                }
+                .padding(.horizontal)
+                .padding(.vertical, 12)
+                .background(Color(.systemBackground))
+                .shadow(color: Color.black.opacity(0.05), radius: 2, x: 0, y: 2)
+
                 // Area Grid
                 if searchText.isEmpty {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -114,7 +141,6 @@ struct DineOutView: View {
                 }
             }
             .navigationTitle("Dine Out Roatan")
-            .searchable(text: $searchText, prompt: "Search cuisine or name...")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if let lastUpdated = dineOutManager.lastUpdated {
