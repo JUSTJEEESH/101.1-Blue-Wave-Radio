@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import EventKit
+@preconcurrency import EventKit
 
 struct EventDetailView: View {
     @Environment(\.dismiss) var dismiss
