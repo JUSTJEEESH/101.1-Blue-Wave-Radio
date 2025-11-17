@@ -171,287 +171,696 @@ class MusicSceneManager: ObservableObject {
         return calendar.date(byAdding: .day, value: daysUntilSaturday, to: today) ?? today
     }
 
-    // MARK: - Placeholder Events
+    // MARK: - Real Events from Blue Wave Radio Music Scene
 
     private func createPlaceholderEvents() -> [MusicEvent] {
         let calendar = Calendar.current
         let today = Date()
 
-        // Helper to create date at specific hour
-        func dateAt(daysFromToday: Int, hour: Int = 19) -> Date {
-            var components = calendar.dateComponents([.year, .month, .day], from: calendar.date(byAdding: .day, value: daysFromToday, to: today) ?? today)
+        // Helper to get next occurrence of a weekday (1=Sunday, 2=Monday, etc.)
+        func nextDate(for weekday: Int, at hour: Int, minute: Int = 0) -> Date {
+            let currentWeekday = calendar.component(.weekday, from: today)
+            var daysToAdd = weekday - currentWeekday
+            if daysToAdd <= 0 {
+                daysToAdd += 7
+            }
+
+            var components = calendar.dateComponents([.year, .month, .day], from: calendar.date(byAdding: .day, value: daysToAdd, to: today) ?? today)
             components.hour = hour
-            components.minute = 0
+            components.minute = minute
             return calendar.date(from: components) ?? today
         }
 
         return [
-            // TODAY - Various Areas
+            // MONDAY EVENTS
             MusicEvent(
-                title: "Acoustic Sunset",
-                venue: "Sundowners",
-                dateTime: dateAt(daysFromToday: 0, hour: 17),
-                description: "Enjoy acoustic guitar and vocals as the sun sets over the Caribbean.",
-                area: "West End",
-                musicGenre: "Acoustic",
-                performer: "Mike Thompson"
-            ),
-            MusicEvent(
-                title: "Jazz Night",
-                venue: "The Blue Marlin",
-                dateTime: dateAt(daysFromToday: 0, hour: 19),
-                description: "Smooth jazz and cocktails in an intimate waterfront setting.",
-                area: "West End",
-                musicGenre: "Jazz",
-                performer: "Island Jazz Trio"
-            ),
-            MusicEvent(
-                title: "Reggae Thursday",
-                venue: "Half Moon Bay Resort",
-                dateTime: dateAt(daysFromToday: 0, hour: 20),
-                description: "Classic reggae vibes on the beach with local bands.",
+                title: "Movie Night",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 2, at: 18, minute: 0),
+                description: "Call for details",
                 area: "West Bay",
-                musicGenre: "Reggae",
-                performer: "Roatan Roots Band"
+                musicGenre: "Movie Night",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Beachers",
+                dateTime: nextDate(for: 2, at: 17, minute: 30),
+                description: "American, British, & Canadian classics & contemporary songs",
+                area: "West Bay",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Bingo Night",
+                venue: "Blue Bahia Beach Grill",
+                dateTime: nextDate(for: 2, at: 18, minute: 0),
+                description: "Every Monday",
+                area: "Sandy Bay",
+                musicGenre: "Bingo",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Brisas del Mar / Tequila Jack's Cantina",
+                dateTime: nextDate(for: 2, at: 18, minute: 0),
+                description: "Rock, Blues, Classics - Every other Monday",
+                area: "West End",
+                musicGenre: "Rock/Blues",
+                performer: "Luis de la Rosa & Maia Karagozlu"
+            ),
+            MusicEvent(
+                title: "Live Music - Gypsy Jazz",
+                venue: "Brisas del Mar / Tequila Jack's Cantina",
+                dateTime: nextDate(for: 2, at: 18, minute: 0),
+                description: "Every other Monday",
+                area: "West End",
+                musicGenre: "Gypsy Jazz",
+                performer: "Marea Baja"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 2, at: 17, minute: 0),
+                description: "Pop and variety, vocals, guitar, sax",
+                area: "West End",
+                musicGenre: "Pop/Variety",
+                performer: "The Londoners"
             ),
 
-            // TOMORROW - Weekend Kickoff
+            // TUESDAY EVENTS
             MusicEvent(
-                title: "Friday Night Live",
-                venue: "Foster's West End",
-                dateTime: dateAt(daysFromToday: 1, hour: 20),
-                description: "Live rock and pop covers to kick off the weekend.",
+                title: "Live DJ",
+                venue: "Fat Tuesday",
+                dateTime: nextDate(for: 3, at: 12, minute: 0),
+                description: "Cruise ship days only",
+                area: "Mahogany Bay",
+                musicGenre: "DJ",
+                performer: "DJ Tigerson"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Sol y Mar Beach Club",
+                dateTime: nextDate(for: 3, at: 11, minute: 0),
+                description: "Guitar, vocals, keyboards - Island music, country, soca. Cruise ship days only",
+                area: "Sandy Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Taco Tunesday with Will & Co.",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 3, at: 17, minute: 0),
+                description: "Returns November 18",
                 area: "West End",
-                musicGenre: "Rock/Pop",
-                performer: "The Island Rockers"
+                musicGenre: "Live Music",
+                performer: "Will & Co."
+            ),
+            MusicEvent(
+                title: "Trivia Night",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 3, at: 19, minute: 0),
+                description: "Hosted by Sean - Upstairs every Tuesday",
+                area: "West End",
+                musicGenre: "Trivia",
+                performer: "Sean"
+            ),
+            MusicEvent(
+                title: "Live Music - Guitar, Rock, Latin",
+                venue: "Xbalanque",
+                dateTime: nextDate(for: 3, at: 18, minute: 0),
+                description: "Guitar, Rock, Latin",
+                area: "West Bay",
+                musicGenre: "Rock/Latin",
+                performer: "Luis de la Rosa"
+            ),
+
+            // WEDNESDAY EVENTS
+            MusicEvent(
+                title: "Fiesta Night with The Happy Boys",
+                venue: "Anthony's Key Resort",
+                dateTime: nextDate(for: 4, at: 17, minute: 0),
+                description: "Island music, country, soca - Crab races, limbo dance, dance competition",
+                area: "Sandy Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 4, at: 10, minute: 30),
+                description: "Island music, band dance & soca",
+                area: "West Bay",
+                musicGenre: "Island/Dance/Soca",
+                performer: "Jensen Grant"
             ),
             MusicEvent(
                 title: "Karaoke Night",
-                venue: "Vintage Pearl",
-                dateTime: dateAt(daysFromToday: 1, hour: 21),
-                description: "Sing your heart out at the island's favorite karaoke spot.",
-                area: "Sandy Bay",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 4, at: 17, minute: 0),
+                description: "Karaoke with DJ Tigerson",
+                area: "West Bay",
                 musicGenre: "Karaoke",
-                performer: "DJ Carlos"
+                performer: "DJ Tigerson"
             ),
             MusicEvent(
-                title: "Latin Dance Party",
-                venue: "Temporary Cal's Cantina",
-                dateTime: dateAt(daysFromToday: 1, hour: 22),
-                description: "Salsa, merengue, and bachata with live Latin band.",
+                title: "Karaoke Night",
+                venue: "Beachers",
+                dateTime: nextDate(for: 4, at: 18, minute: 0),
+                description: "Come out and sing",
                 area: "West Bay",
-                musicGenre: "Latin",
-                performer: "Los Caribenos"
-            ),
-
-            // SATURDAY - Full Weekend
-            MusicEvent(
-                title: "Beach BBQ & Blues",
-                venue: "Infinity Bay Resort",
-                dateTime: dateAt(daysFromToday: 2, hour: 18),
-                description: "Beachfront BBQ with live blues music and ocean views.",
-                area: "West Bay",
-                musicGenre: "Blues",
-                performer: "Blue Wave Blues Band"
+                musicGenre: "Karaoke",
+                performer: ""
             ),
             MusicEvent(
-                title: "DJ Night at Sundowners",
-                venue: "Sundowners",
-                dateTime: dateAt(daysFromToday: 2, hour: 21),
-                description: "Dance the night away with top island DJs spinning house and electronic.",
+                title: "Guitar Duo",
+                venue: "Blue Marlin",
+                dateTime: nextDate(for: 4, at: 16, minute: 30),
+                description: "Come out and support José and Michael for happy hour",
                 area: "West End",
-                musicGenre: "Electronic/House",
-                performer: "DJ Tropix"
+                musicGenre: "Guitar Duo",
+                performer: "Jose & Michael"
             ),
             MusicEvent(
-                title: "Live Band Saturdays",
-                venue: "Barefoot Cay Resort",
-                dateTime: dateAt(daysFromToday: 2, hour: 19),
-                description: "Weekly live band featuring classic rock, country, and island favorites.",
+                title: "Live Music - Pop and Variety",
+                venue: "Brisas del Mar / Tequila Jack's Cantina",
+                dateTime: nextDate(for: 4, at: 17, minute: 0),
+                description: "Pop and variety, vocals, guitar, sax - Every other Wednesday",
+                area: "West End",
+                musicGenre: "Pop/Variety",
+                performer: "The Londoners"
+            ),
+            MusicEvent(
+                title: "Live DJ",
+                venue: "Fat Tuesday",
+                dateTime: nextDate(for: 4, at: 11, minute: 0),
+                description: "",
+                area: "Mahogany Bay",
+                musicGenre: "DJ",
+                performer: "DJ Tigerson"
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Herby's Sports Bar",
+                dateTime: nextDate(for: 4, at: 19, minute: 0),
+                description: "Come out and sing",
                 area: "French Harbour",
-                musicGenre: "Rock/Country",
-                performer: "Barefoot Band"
+                musicGenre: "Karaoke",
+                performer: "MC Lobo"
             ),
             MusicEvent(
-                title: "Reggae & Rum",
-                venue: "West Bay Beach Bar",
-                dateTime: dateAt(daysFromToday: 2, hour: 17),
-                description: "Reggae rhythms and rum cocktails on the beach.",
+                title: "Karaoke Night",
+                venue: "Paradise Beach Resort, Cayuco Bar",
+                dateTime: nextDate(for: 4, at: 19, minute: 0),
+                description: "Every Wednesday",
                 area: "West Bay",
-                musicGenre: "Reggae",
-                performer: "Island Vibe Collective"
+                musicGenre: "Karaoke",
+                performer: ""
             ),
             MusicEvent(
-                title: "Acoustic Sessions",
-                venue: "Beso del Sol",
-                dateTime: dateAt(daysFromToday: 2, hour: 18),
-                description: "Intimate acoustic performances with talented local musicians.",
-                area: "Oak Ridge",
-                musicGenre: "Acoustic",
-                performer: "Sarah Williams"
+                title: "Cruise Ship Day Jam",
+                venue: "Sol y Mar Beach Club",
+                dateTime: nextDate(for: 4, at: 11, minute: 0),
+                description: "Guitar, vocals, keyboards - Island music, country, soca",
+                area: "Sandy Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Live Music - Guitar, Rock, Latin",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 4, at: 19, minute: 0),
+                description: "Guitar, Rock, Latin",
+                area: "West End",
+                musicGenre: "Rock/Latin",
+                performer: "Luis de la Rosa"
+            ),
+            MusicEvent(
+                title: "LCR",
+                venue: "Tita's Pink Seahorse",
+                dateTime: nextDate(for: 4, at: 19, minute: 0),
+                description: "",
+                area: "West End",
+                musicGenre: "Event",
+                performer: ""
             ),
 
-            // SUNDAY - Weekend Wrap
+            // THURSDAY EVENTS
+            MusicEvent(
+                title: "Live Music - Acoustic Latin, Rock & Reggae",
+                venue: "Arca Roatan - Ahari",
+                dateTime: nextDate(for: 5, at: 17, minute: 30),
+                description: "Acoustic Latin, Rock, & Reggae",
+                area: "West Bay",
+                musicGenre: "Latin/Rock/Reggae",
+                performer: "Lisandro Cabrera"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 5, at: 17, minute: 30),
+                description: "Country, Rock, Top 40 - Returns December 11",
+                area: "West Bay",
+                musicGenre: "Country/Rock",
+                performer: "Ryan Ruin"
+            ),
+            MusicEvent(
+                title: "Morning Live Music",
+                venue: "Bean Crazy",
+                dateTime: nextDate(for: 5, at: 9, minute: 0),
+                description: "American, British, & Canadian classics & contemporary songs",
+                area: "West End",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Bodega22",
+                dateTime: nextDate(for: 5, at: 19, minute: 0),
+                description: "",
+                area: "Airport Area",
+                musicGenre: "Karaoke",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Booty Bar",
+                dateTime: nextDate(for: 5, at: 19, minute: 0),
+                description: "",
+                area: "West End",
+                musicGenre: "Karaoke",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music - IMOX",
+                venue: "Brisas del Mar / Tequila Jack's Cantina",
+                dateTime: nextDate(for: 5, at: 19, minute: 0),
+                description: "",
+                area: "West End",
+                musicGenre: "Live Music",
+                performer: "IMOX"
+            ),
+            MusicEvent(
+                title: "Movie Night",
+                venue: "Paradise Beach Resort, Cayuco Bar",
+                dateTime: nextDate(for: 5, at: 20, minute: 0),
+                description: "If raining, call to confirm",
+                area: "West Bay",
+                musicGenre: "Movie Night",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Pazzo",
+                dateTime: nextDate(for: 5, at: 17, minute: 30),
+                description: "American, British, & Canadian classics & contemporary songs - Returns Dec 4th",
+                area: "West End",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Cruise Ship Jam",
+                venue: "Sol y Mar Beach Club",
+                dateTime: nextDate(for: 5, at: 11, minute: 0),
+                description: "Guitar, vocals, keyboards - Island music, country, soca",
+                area: "Sandy Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Swing Jazz",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 5, at: 17, minute: 0),
+                description: "Gypsy Jazz with Al Londoner - vocals, jazz, pop",
+                area: "West End",
+                musicGenre: "Swing/Jazz",
+                performer: "Marea Baja & Al Londoner"
+            ),
+            MusicEvent(
+                title: "Music Trivia Night",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 5, at: 19, minute: 0),
+                description: "Hosted by Eddie Nakada - Upstairs",
+                area: "West End",
+                musicGenre: "Trivia",
+                performer: "Eddie Nakada"
+            ),
+            MusicEvent(
+                title: "Movie Night",
+                venue: "The Beach Club San Simon",
+                dateTime: nextDate(for: 5, at: 19, minute: 30),
+                description: "Call to confirm",
+                area: "West Bay",
+                musicGenre: "Movie Night",
+                performer: ""
+            ),
+
+            // FRIDAY EVENTS
+            MusicEvent(
+                title: "Island Music Night",
+                venue: "Anthony's Key Resort",
+                dateTime: nextDate(for: 6, at: 17, minute: 0),
+                description: "Island music, country, soca",
+                area: "Sandy Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Live Music - Bossa, Latin, Soul",
+                venue: "Arca Roatan - Ahari",
+                dateTime: nextDate(for: 6, at: 17, minute: 30),
+                description: "Bossa, Latin, Soul",
+                area: "West Bay",
+                musicGenre: "Bossa/Latin/Soul",
+                performer: "Maia Karagozlu"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 6, at: 17, minute: 30),
+                description: "Rock, Pop, Country, Acoustic - Call to confirm",
+                area: "West Bay",
+                musicGenre: "Rock/Pop/Country",
+                performer: "Mike Maguire"
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Blue Marlin",
+                dateTime: nextDate(for: 6, at: 21, minute: 0),
+                description: "Come out and sing",
+                area: "West End",
+                musicGenre: "Karaoke",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "DJ Dance Party",
+                venue: "Booty Bar",
+                dateTime: nextDate(for: 6, at: 20, minute: 0),
+                description: "",
+                area: "West End",
+                musicGenre: "DJ/Dance",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Bingo Night",
+                venue: "Brisas del Mar / Tequila Jack's Cantina",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Get lucky at Brisas...Bingo night",
+                area: "West End",
+                musicGenre: "Bingo",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Cal's Cantina",
+                dateTime: nextDate(for: 6, at: 17, minute: 0),
+                description: "Returns week of December 1",
+                area: "East End",
+                musicGenre: "Karaoke",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Swim Up Live Music Lunch",
+                venue: "Guava Grill Swim-up Pool Bar",
+                dateTime: nextDate(for: 6, at: 13, minute: 0),
+                description: "Pop, island, reggae acoustic",
+                area: "Sandy Bay",
+                musicGenre: "Pop/Island/Reggae",
+                performer: "Zozeny"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Herby's Sports Bar",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "",
+                area: "French Harbour",
+                musicGenre: "Live Music",
+                performer: "Muddy"
+            ),
+            MusicEvent(
+                title: "Garifuna Show",
+                venue: "Ibagari",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Traditional Garifuna dance - Call to confirm schedule",
+                area: "West Bay",
+                musicGenre: "Garifuna",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Latin Music",
+                venue: "Kimpton Grand Roatan - Vos Cafe & Bar",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Cumbia, Latin dance, love songs",
+                area: "West Bay",
+                musicGenre: "Latin/Cumbia",
+                performer: "Maria Jose"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Kristi's Island Kitchen",
+                dateTime: nextDate(for: 6, at: 17, minute: 30),
+                description: "American, British, & Canadian classics & contemporary songs",
+                area: "West Bay",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Live Music - Percussion",
+                venue: "Paradise Beach Resort, Cayuco Bar",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Percussion with DJ tracks - Call to confirm",
+                area: "West Bay",
+                musicGenre: "Percussion/DJ",
+                performer: "Kilombeats"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Roatan Yacht Club",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Pop, island, reggae acoustic",
+                area: "French Harbour",
+                musicGenre: "Pop/Island/Reggae",
+                performer: "Zozeny"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Salty Dawg",
+                dateTime: nextDate(for: 6, at: 13, minute: 0),
+                description: "A rotating group of musicians each Friday",
+                area: "East End",
+                musicGenre: "Live Music",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live DJ",
+                venue: "Seawiches",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "",
+                area: "West End",
+                musicGenre: "DJ",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 6, at: 19, minute: 0),
+                description: "Pop, rock, acoustic with Harmony Storms",
+                area: "West End",
+                musicGenre: "Pop/Rock/Acoustic",
+                performer: "Scotty C"
+            ),
+
+            // SATURDAY EVENTS
+            MusicEvent(
+                title: "Live Music - Gypsy Jazz",
+                venue: "Arca Roatan - Ahari",
+                dateTime: nextDate(for: 7, at: 16, minute: 30),
+                description: "Gypsy Jazz",
+                area: "West Bay",
+                musicGenre: "Gypsy Jazz",
+                performer: "Marea Baja"
+            ),
+            MusicEvent(
+                title: "Live Percussion with DJ",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 7, at: 18, minute: 0),
+                description: "Live percussion with DJ tracks",
+                area: "West Bay",
+                musicGenre: "Percussion/DJ",
+                performer: "Kilombeats"
+            ),
+            MusicEvent(
+                title: "Live DJ",
+                venue: "Bodega22",
+                dateTime: nextDate(for: 7, at: 21, minute: 0),
+                description: "Call to confirm",
+                area: "Airport Area",
+                musicGenre: "DJ",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live DJ",
+                venue: "Booty Bar",
+                dateTime: nextDate(for: 7, at: 19, minute: 0),
+                description: "Call to confirm",
+                area: "West End",
+                musicGenre: "DJ",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Herby's Sports Bar",
+                dateTime: nextDate(for: 7, at: 19, minute: 0),
+                description: "Island music, soca, pop",
+                area: "French Harbour",
+                musicGenre: "Island/Soca/Pop",
+                performer: "Muddy"
+            ),
+            MusicEvent(
+                title: "Live Music - Guitar",
+                venue: "Infinity Bay",
+                dateTime: nextDate(for: 7, at: 19, minute: 0),
+                description: "Acoustic Latin, rock, & reggae",
+                area: "West Bay",
+                musicGenre: "Latin/Rock/Reggae",
+                performer: "Lisandro Cabrera"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Kristi's Island Kitchen",
+                dateTime: nextDate(for: 7, at: 17, minute: 30),
+                description: "American, British, & Canadian classics & contemporary songs",
+                area: "West Bay",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Live DJ",
+                venue: "La Placita Inn",
+                dateTime: nextDate(for: 7, at: 18, minute: 30),
+                description: "Call to confirm",
+                area: "West Bay",
+                musicGenre: "DJ",
+                performer: "DJ Gerson"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Mayan Princess Resorts, Calketts Bar",
+                dateTime: nextDate(for: 7, at: 18, minute: 30),
+                description: "Guitar, vocals, keyboards - Island music, country, soca",
+                area: "West Bay",
+                musicGenre: "Island/Country/Soca",
+                performer: "The Happy Boys"
+            ),
+            MusicEvent(
+                title: "Garifuna Show & After Party",
+                venue: "Paradise Beach Resort, Cayuco Bar",
+                dateTime: nextDate(for: 7, at: 19, minute: 30),
+                description: "Garifuna show and after party on the beach",
+                area: "West Bay",
+                musicGenre: "Garifuna",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live DJ - Electronika",
+                venue: "Seawiches",
+                dateTime: nextDate(for: 7, at: 20, minute: 0),
+                description: "Electronika until late - Come and enjoy",
+                area: "West End",
+                musicGenre: "Electronika",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Sundowners",
+                dateTime: nextDate(for: 7, at: 19, minute: 0),
+                description: "Country, blues, & 90s rock - Filling in for Ryan Ruin through Dec 6",
+                area: "West End",
+                musicGenre: "Country/Blues/Rock",
+                performer: "Josh Green"
+            ),
+            MusicEvent(
+                title: "Movie Night on the Dock",
+                venue: "The Beach House",
+                dateTime: nextDate(for: 7, at: 18, minute: 30),
+                description: "Call to confirm",
+                area: "West End",
+                musicGenre: "Movie Night",
+                performer: ""
+            ),
+
+            // SUNDAY EVENTS
+            MusicEvent(
+                title: "Family Night",
+                venue: "Bananarama",
+                dateTime: nextDate(for: 1, at: 17, minute: 0),
+                description: "Live music, fire show, charity crab races",
+                area: "West Bay",
+                musicGenre: "Family Event",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Sunday Funday - Jammin' Around the Classics",
+                venue: "Blue Bahia Beach Grill",
+                dateTime: nextDate(for: 1, at: 17, minute: 30),
+                description: "Multiple artists jamming classics",
+                area: "Sandy Bay",
+                musicGenre: "Classics Jam",
+                performer: "Tommy Morris, Lisandro Cabrera, Zozeny, Steve Campbell"
+            ),
+            MusicEvent(
+                title: "Guitar Duo",
+                venue: "Blue Marlin",
+                dateTime: nextDate(for: 1, at: 16, minute: 30),
+                description: "Come out and support José and Michael for happy hour",
+                area: "West End",
+                musicGenre: "Guitar Duo",
+                performer: "Jose & Michael"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Booty Bar",
+                dateTime: nextDate(for: 1, at: 17, minute: 30),
+                description: "Call to confirm",
+                area: "West End",
+                musicGenre: "Live Music",
+                performer: ""
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Ginger's",
+                dateTime: nextDate(for: 1, at: 12, minute: 30),
+                description: "American, British, & Canadian classics & contemporary songs",
+                area: "West End",
+                musicGenre: "Classics/Contemporary",
+                performer: "Tommy Morris"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "La Placita Inn",
+                dateTime: nextDate(for: 1, at: 18, minute: 30),
+                description: "Island music and favorites",
+                area: "West Bay",
+                musicGenre: "Island Music",
+                performer: "Speedy James"
+            ),
+            MusicEvent(
+                title: "Live Music",
+                venue: "Paradise Beach Resort, Cayuco Bar",
+                dateTime: nextDate(for: 1, at: 14, minute: 0),
+                description: "Island music, soca, pop",
+                area: "West Bay",
+                musicGenre: "Island/Soca/Pop",
+                performer: "Muddy"
+            ),
             MusicEvent(
                 title: "Sunday Funday",
                 venue: "Sundowners",
-                dateTime: dateAt(daysFromToday: 3, hour: 15),
-                description: "Afternoon party with DJ, beach games, and island vibes.",
+                dateTime: nextDate(for: 1, at: 14, minute: 0),
+                description: "DJ spinning reggae, funk, & soul",
                 area: "West End",
-                musicGenre: "Variety/DJ",
-                performer: "DJ Island Mike"
-            ),
-            MusicEvent(
-                title: "Sunday Sunset Serenade",
-                venue: "The Blue Marlin",
-                dateTime: dateAt(daysFromToday: 3, hour: 17),
-                description: "Mellow acoustic tunes as you watch the sunset.",
-                area: "West End",
-                musicGenre: "Acoustic",
-                performer: "Tom & Friends"
-            ),
-            MusicEvent(
-                title: "Beach Bonfire Jam",
-                venue: "Bananarama Resort",
-                dateTime: dateAt(daysFromToday: 3, hour: 19),
-                description: "Beach bonfire with live music and s'mores.",
-                area: "West Bay",
-                musicGenre: "Folk/Island",
-                performer: "Open Mic Night"
-            ),
-
-            // MONDAY
-            MusicEvent(
-                title: "Monday Night Blues",
-                venue: "Foster's West End",
-                dateTime: dateAt(daysFromToday: 4, hour: 19),
-                description: "Start your week with soulful blues music.",
-                area: "West End",
-                musicGenre: "Blues",
-                performer: "The Monday Blues Band"
-            ),
-            MusicEvent(
-                title: "Trivia & Tunes",
-                venue: "Vintage Pearl",
-                dateTime: dateAt(daysFromToday: 4, hour: 20),
-                description: "Test your knowledge with live music breaks.",
-                area: "Sandy Bay",
-                musicGenre: "Variety",
-                performer: "DJ Quiz Master"
-            ),
-
-            // TUESDAY
-            MusicEvent(
-                title: "Taco Tuesday Live",
-                venue: "Temporary Cal's Cantina",
-                dateTime: dateAt(daysFromToday: 5, hour: 18),
-                description: "Tacos and live mariachi music.",
-                area: "West Bay",
-                musicGenre: "Mariachi/Latin",
-                performer: "Mariachi Roatan"
-            ),
-            MusicEvent(
-                title: "Open Mic Night",
-                venue: "Sundowners",
-                dateTime: dateAt(daysFromToday: 5, hour: 20),
-                description: "Show off your talent or just enjoy the performances.",
-                area: "West End",
-                musicGenre: "Variety/Open Mic",
-                performer: "Various Artists"
-            ),
-
-            // WEDNESDAY
-            MusicEvent(
-                title: "Wine & Jazz Wednesday",
-                venue: "The Blue Marlin",
-                dateTime: dateAt(daysFromToday: 6, hour: 19),
-                description: "Sophisticated evening of wine tasting and smooth jazz.",
-                area: "West End",
-                musicGenre: "Jazz",
-                performer: "The Smooth Cats"
-            ),
-            MusicEvent(
-                title: "Reggae Midweek",
-                venue: "Beachers",
-                dateTime: dateAt(daysFromToday: 6, hour: 20),
-                description: "Midweek reggae to get you through to the weekend.",
-                area: "Sandy Bay",
-                musicGenre: "Reggae",
-                performer: "Irie Vibes"
-            ),
-            MusicEvent(
-                title: "Acoustic Wednesday",
-                venue: "Pura Vida",
-                dateTime: dateAt(daysFromToday: 6, hour: 18),
-                description: "Mellow acoustic music in a cozy atmosphere.",
-                area: "Punta Gorda",
-                musicGenre: "Acoustic",
-                performer: "Local Legends"
-            ),
-
-            // ADDITIONAL WEEKLY EVENTS - Various Locations
-            MusicEvent(
-                title: "Caribbean Night",
-                venue: "Hole in the Wall",
-                dateTime: dateAt(daysFromToday: 0, hour: 19),
-                description: "Authentic Caribbean music and cuisine on the east end.",
-                area: "East End",
-                musicGenre: "Caribbean/Soca",
-                performer: "East End All-Stars"
-            ),
-            MusicEvent(
-                title: "Country Night",
-                venue: "The Rusty Fish",
-                dateTime: dateAt(daysFromToday: 1, hour: 20),
-                description: "Country music and line dancing.",
-                area: "French Harbour",
-                musicGenre: "Country",
-                performer: "Island Cowboys"
-            ),
-            MusicEvent(
-                title: "Island Classics",
-                venue: "Herby's Sports Bar",
-                dateTime: dateAt(daysFromToday: 2, hour: 19),
-                description: "Classic island tunes and local favorites.",
-                area: "French Harbour",
-                musicGenre: "Island/Reggae",
-                performer: "Herby's House Band"
-            ),
-            MusicEvent(
-                title: "Beach Party Thursdays",
-                venue: "Lost Paradise Inn",
-                dateTime: dateAt(daysFromToday: 0, hour: 18),
-                description: "Weekly beach party with DJ and dancing.",
-                area: "Sandy Bay",
-                musicGenre: "Dance/Electronic",
-                performer: "DJ Sunset"
-            ),
-            MusicEvent(
-                title: "Live Acoustic Fridays",
-                venue: "Roatan Oasis",
-                dateTime: dateAt(daysFromToday: 1, hour: 19),
-                description: "Unplugged performances in a relaxed setting.",
-                area: "Sandy Bay",
-                musicGenre: "Acoustic/Folk",
-                performer: "The Wanderers"
-            ),
-            MusicEvent(
-                title: "Salsa Saturdays",
-                venue: "Henry Morgan Resort",
-                dateTime: dateAt(daysFromToday: 2, hour: 20),
-                description: "Latin dance night with salsa lessons included.",
-                area: "West End",
-                musicGenre: "Latin/Salsa",
-                performer: "Salsa Caliente Band"
-            ),
-            MusicEvent(
-                title: "Sunday Brunch Jazz",
-                venue: "Casa Romeo",
-                dateTime: dateAt(daysFromToday: 3, hour: 11),
-                description: "Elegant Sunday brunch with live jazz music.",
-                area: "West Bay",
-                musicGenre: "Jazz",
-                performer: "Brunch Jazz Ensemble"
+                musicGenre: "Reggae/Funk/Soul",
+                performer: "DJ Al Londoner"
             )
         ]
     }
