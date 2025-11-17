@@ -35,7 +35,7 @@ class WeatherManager: ObservableObject {
     }
 
     private var cancellables = Set<AnyCancellable>()
-    private var refreshTimer: Timer?
+    private nonisolated(unsafe) var refreshTimer: Timer?
 
     private init() {
         // Load settings
