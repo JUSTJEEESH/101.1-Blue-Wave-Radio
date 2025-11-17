@@ -59,6 +59,35 @@ struct EventDetailView: View {
 
                         Divider()
 
+                        // Area
+                        DetailRow(
+                            icon: "map.fill",
+                            title: "Area",
+                            value: event.area
+                        )
+
+                        Divider()
+
+                        // Performer
+                        if !event.performer.isEmpty {
+                            DetailRow(
+                                icon: "person.fill",
+                                title: "Performer",
+                                value: event.performer
+                            )
+
+                            Divider()
+                        }
+
+                        // Music Genre
+                        DetailRow(
+                            icon: "music.note",
+                            title: "Genre",
+                            value: event.musicGenre
+                        )
+
+                        Divider()
+
                         // Date & Time
                         DetailRow(
                             icon: "calendar",
@@ -264,7 +293,10 @@ struct ShareSheet: UIViewControllerRepresentable {
             title: "Live Reggae Night",
             venue: "Paradise Beach Hotel",
             dateTime: Date(),
-            description: "Join us for a night of authentic reggae rhythms by the beach."
+            description: "Join us for a night of authentic reggae rhythms by the beach.",
+            area: "West End",
+            musicGenre: "Reggae",
+            performer: "Island Roots Band"
         )
     )
     .environmentObject(MusicSceneManager())
