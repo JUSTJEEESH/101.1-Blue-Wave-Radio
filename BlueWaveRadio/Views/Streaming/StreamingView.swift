@@ -234,4 +234,5 @@ struct StreamingView: View {
 #Preview {
     StreamingView()
         .environmentObject(AudioStreamManager.shared)
+        .environmentObject(WeatherManager.shared)
 }
