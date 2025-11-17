@@ -14,6 +14,9 @@ struct MusicEvent: Identifiable, Codable, Hashable {
     let dateTime: Date
     let description: String
     let imageURL: String?
+    let area: String
+    let musicGenre: String
+    let performer: String
     var isFavorite: Bool = false
 
     init(
@@ -23,6 +26,9 @@ struct MusicEvent: Identifiable, Codable, Hashable {
         dateTime: Date,
         description: String,
         imageURL: String? = nil,
+        area: String = "West End",
+        musicGenre: String = "Live Music",
+        performer: String = "",
         isFavorite: Bool = false
     ) {
         self.id = id
@@ -31,6 +37,9 @@ struct MusicEvent: Identifiable, Codable, Hashable {
         self.dateTime = dateTime
         self.description = description
         self.imageURL = imageURL
+        self.area = area
+        self.musicGenre = musicGenre
+        self.performer = performer
         self.isFavorite = isFavorite
     }
 

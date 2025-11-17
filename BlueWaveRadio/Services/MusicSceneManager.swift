@@ -122,7 +122,10 @@ class MusicSceneManager: ObservableObject {
                     venue: venue,
                     dateTime: dateTime,
                     description: "Live music at \(venue)",
-                    imageURL: nil
+                    imageURL: nil,
+                    area: "West End", // Default, would be parsed from HTML in production
+                    musicGenre: "Live Music", // Default, would be parsed from HTML in production
+                    performer: "" // Default, would be parsed from HTML in production
                 )
                 parsedEvents.append(musicEvent)
                 currentEvent = nil
@@ -174,41 +177,281 @@ class MusicSceneManager: ObservableObject {
         let calendar = Calendar.current
         let today = Date()
 
+        // Helper to create date at specific hour
+        func dateAt(daysFromToday: Int, hour: Int = 19) -> Date {
+            var components = calendar.dateComponents([.year, .month, .day], from: calendar.date(byAdding: .day, value: daysFromToday, to: today) ?? today)
+            components.hour = hour
+            components.minute = 0
+            return calendar.date(from: components) ?? today
+        }
+
         return [
+            // TODAY - Various Areas
             MusicEvent(
-                title: "Live Reggae Night",
-                venue: "Paradise Beach Hotel",
-                dateTime: calendar.date(byAdding: .day, value: 1, to: today) ?? today,
-                description: "Join us for a night of authentic reggae rhythms by the beach. Local and visiting artists perform classic reggae hits and original compositions.",
-                imageURL: nil
-            ),
-            MusicEvent(
-                title: "Acoustic Sunset Sessions",
-                venue: "The Blue Marlin",
-                dateTime: calendar.date(byAdding: .day, value: 2, to: today) ?? today,
-                description: "Intimate acoustic performances as the sun sets over the Caribbean. Featuring local singer-songwriters.",
-                imageURL: nil
-            ),
-            MusicEvent(
-                title: "Latin Jazz Fusion",
-                venue: "Vintage Pearl",
-                dateTime: calendar.date(byAdding: .day, value: 3, to: today) ?? today,
-                description: "Experience the fusion of Latin rhythms and smooth jazz in an elegant waterfront setting.",
-                imageURL: nil
-            ),
-            MusicEvent(
-                title: "Island Vibes DJ Night",
+                title: "Acoustic Sunset",
                 venue: "Sundowners",
-                dateTime: calendar.date(byAdding: .day, value: 4, to: today) ?? today,
-                description: "Dance the night away with resident and guest DJs spinning Caribbean beats, dancehall, and island favorites.",
-                imageURL: nil
+                dateTime: dateAt(daysFromToday: 0, hour: 17),
+                description: "Enjoy acoustic guitar and vocals as the sun sets over the Caribbean.",
+                area: "West End",
+                musicGenre: "Acoustic",
+                performer: "Mike Thompson"
             ),
             MusicEvent(
-                title: "Classic Rock Tribute",
+                title: "Jazz Night",
+                venue: "The Blue Marlin",
+                dateTime: dateAt(daysFromToday: 0, hour: 19),
+                description: "Smooth jazz and cocktails in an intimate waterfront setting.",
+                area: "West End",
+                musicGenre: "Jazz",
+                performer: "Island Jazz Trio"
+            ),
+            MusicEvent(
+                title: "Reggae Thursday",
+                venue: "Half Moon Bay Resort",
+                dateTime: dateAt(daysFromToday: 0, hour: 20),
+                description: "Classic reggae vibes on the beach with local bands.",
+                area: "West Bay",
+                musicGenre: "Reggae",
+                performer: "Roatan Roots Band"
+            ),
+
+            // TOMORROW - Weekend Kickoff
+            MusicEvent(
+                title: "Friday Night Live",
                 venue: "Foster's West End",
-                dateTime: calendar.date(byAdding: .day, value: 5, to: today) ?? today,
-                description: "Rock out to classic hits from the 70s, 80s, and 90s performed by talented island musicians.",
-                imageURL: nil
+                dateTime: dateAt(daysFromToday: 1, hour: 20),
+                description: "Live rock and pop covers to kick off the weekend.",
+                area: "West End",
+                musicGenre: "Rock/Pop",
+                performer: "The Island Rockers"
+            ),
+            MusicEvent(
+                title: "Karaoke Night",
+                venue: "Vintage Pearl",
+                dateTime: dateAt(daysFromToday: 1, hour: 21),
+                description: "Sing your heart out at the island's favorite karaoke spot.",
+                area: "Sandy Bay",
+                musicGenre: "Karaoke",
+                performer: "DJ Carlos"
+            ),
+            MusicEvent(
+                title: "Latin Dance Party",
+                venue: "Temporary Cal's Cantina",
+                dateTime: dateAt(daysFromToday: 1, hour: 22),
+                description: "Salsa, merengue, and bachata with live Latin band.",
+                area: "West Bay",
+                musicGenre: "Latin",
+                performer: "Los Caribenos"
+            ),
+
+            // SATURDAY - Full Weekend
+            MusicEvent(
+                title: "Beach BBQ & Blues",
+                venue: "Infinity Bay Resort",
+                dateTime: dateAt(daysFromToday: 2, hour: 18),
+                description: "Beachfront BBQ with live blues music and ocean views.",
+                area: "West Bay",
+                musicGenre: "Blues",
+                performer: "Blue Wave Blues Band"
+            ),
+            MusicEvent(
+                title: "DJ Night at Sundowners",
+                venue: "Sundowners",
+                dateTime: dateAt(daysFromToday: 2, hour: 21),
+                description: "Dance the night away with top island DJs spinning house and electronic.",
+                area: "West End",
+                musicGenre: "Electronic/House",
+                performer: "DJ Tropix"
+            ),
+            MusicEvent(
+                title: "Live Band Saturdays",
+                venue: "Barefoot Cay Resort",
+                dateTime: dateAt(daysFromToday: 2, hour: 19),
+                description: "Weekly live band featuring classic rock, country, and island favorites.",
+                area: "French Harbour",
+                musicGenre: "Rock/Country",
+                performer: "Barefoot Band"
+            ),
+            MusicEvent(
+                title: "Reggae & Rum",
+                venue: "West Bay Beach Bar",
+                dateTime: dateAt(daysFromToday: 2, hour: 17),
+                description: "Reggae rhythms and rum cocktails on the beach.",
+                area: "West Bay",
+                musicGenre: "Reggae",
+                performer: "Island Vibe Collective"
+            ),
+            MusicEvent(
+                title: "Acoustic Sessions",
+                venue: "Beso del Sol",
+                dateTime: dateAt(daysFromToday: 2, hour: 18),
+                description: "Intimate acoustic performances with talented local musicians.",
+                area: "Oak Ridge",
+                musicGenre: "Acoustic",
+                performer: "Sarah Williams"
+            ),
+
+            // SUNDAY - Weekend Wrap
+            MusicEvent(
+                title: "Sunday Funday",
+                venue: "Sundowners",
+                dateTime: dateAt(daysFromToday: 3, hour: 15),
+                description: "Afternoon party with DJ, beach games, and island vibes.",
+                area: "West End",
+                musicGenre: "Variety/DJ",
+                performer: "DJ Island Mike"
+            ),
+            MusicEvent(
+                title: "Sunday Sunset Serenade",
+                venue: "The Blue Marlin",
+                dateTime: dateAt(daysFromToday: 3, hour: 17),
+                description: "Mellow acoustic tunes as you watch the sunset.",
+                area: "West End",
+                musicGenre: "Acoustic",
+                performer: "Tom & Friends"
+            ),
+            MusicEvent(
+                title: "Beach Bonfire Jam",
+                venue: "Bananarama Resort",
+                dateTime: dateAt(daysFromToday: 3, hour: 19),
+                description: "Beach bonfire with live music and s'mores.",
+                area: "West Bay",
+                musicGenre: "Folk/Island",
+                performer: "Open Mic Night"
+            ),
+
+            // MONDAY
+            MusicEvent(
+                title: "Monday Night Blues",
+                venue: "Foster's West End",
+                dateTime: dateAt(daysFromToday: 4, hour: 19),
+                description: "Start your week with soulful blues music.",
+                area: "West End",
+                musicGenre: "Blues",
+                performer: "The Monday Blues Band"
+            ),
+            MusicEvent(
+                title: "Trivia & Tunes",
+                venue: "Vintage Pearl",
+                dateTime: dateAt(daysFromToday: 4, hour: 20),
+                description: "Test your knowledge with live music breaks.",
+                area: "Sandy Bay",
+                musicGenre: "Variety",
+                performer: "DJ Quiz Master"
+            ),
+
+            // TUESDAY
+            MusicEvent(
+                title: "Taco Tuesday Live",
+                venue: "Temporary Cal's Cantina",
+                dateTime: dateAt(daysFromToday: 5, hour: 18),
+                description: "Tacos and live mariachi music.",
+                area: "West Bay",
+                musicGenre: "Mariachi/Latin",
+                performer: "Mariachi Roatan"
+            ),
+            MusicEvent(
+                title: "Open Mic Night",
+                venue: "Sundowners",
+                dateTime: dateAt(daysFromToday: 5, hour: 20),
+                description: "Show off your talent or just enjoy the performances.",
+                area: "West End",
+                musicGenre: "Variety/Open Mic",
+                performer: "Various Artists"
+            ),
+
+            // WEDNESDAY
+            MusicEvent(
+                title: "Wine & Jazz Wednesday",
+                venue: "The Blue Marlin",
+                dateTime: dateAt(daysFromToday: 6, hour: 19),
+                description: "Sophisticated evening of wine tasting and smooth jazz.",
+                area: "West End",
+                musicGenre: "Jazz",
+                performer: "The Smooth Cats"
+            ),
+            MusicEvent(
+                title: "Reggae Midweek",
+                venue: "Beachers",
+                dateTime: dateAt(daysFromToday: 6, hour: 20),
+                description: "Midweek reggae to get you through to the weekend.",
+                area: "Sandy Bay",
+                musicGenre: "Reggae",
+                performer: "Irie Vibes"
+            ),
+            MusicEvent(
+                title: "Acoustic Wednesday",
+                venue: "Pura Vida",
+                dateTime: dateAt(daysFromToday: 6, hour: 18),
+                description: "Mellow acoustic music in a cozy atmosphere.",
+                area: "Punta Gorda",
+                musicGenre: "Acoustic",
+                performer: "Local Legends"
+            ),
+
+            // ADDITIONAL WEEKLY EVENTS - Various Locations
+            MusicEvent(
+                title: "Caribbean Night",
+                venue: "Hole in the Wall",
+                dateTime: dateAt(daysFromToday: 0, hour: 19),
+                description: "Authentic Caribbean music and cuisine on the east end.",
+                area: "East End",
+                musicGenre: "Caribbean/Soca",
+                performer: "East End All-Stars"
+            ),
+            MusicEvent(
+                title: "Country Night",
+                venue: "The Rusty Fish",
+                dateTime: dateAt(daysFromToday: 1, hour: 20),
+                description: "Country music and line dancing.",
+                area: "French Harbour",
+                musicGenre: "Country",
+                performer: "Island Cowboys"
+            ),
+            MusicEvent(
+                title: "Island Classics",
+                venue: "Herby's Sports Bar",
+                dateTime: dateAt(daysFromToday: 2, hour: 19),
+                description: "Classic island tunes and local favorites.",
+                area: "French Harbour",
+                musicGenre: "Island/Reggae",
+                performer: "Herby's House Band"
+            ),
+            MusicEvent(
+                title: "Beach Party Thursdays",
+                venue: "Lost Paradise Inn",
+                dateTime: dateAt(daysFromToday: 0, hour: 18),
+                description: "Weekly beach party with DJ and dancing.",
+                area: "Sandy Bay",
+                musicGenre: "Dance/Electronic",
+                performer: "DJ Sunset"
+            ),
+            MusicEvent(
+                title: "Live Acoustic Fridays",
+                venue: "Roatan Oasis",
+                dateTime: dateAt(daysFromToday: 1, hour: 19),
+                description: "Unplugged performances in a relaxed setting.",
+                area: "Sandy Bay",
+                musicGenre: "Acoustic/Folk",
+                performer: "The Wanderers"
+            ),
+            MusicEvent(
+                title: "Salsa Saturdays",
+                venue: "Henry Morgan Resort",
+                dateTime: dateAt(daysFromToday: 2, hour: 20),
+                description: "Latin dance night with salsa lessons included.",
+                area: "West End",
+                musicGenre: "Latin/Salsa",
+                performer: "Salsa Caliente Band"
+            ),
+            MusicEvent(
+                title: "Sunday Brunch Jazz",
+                venue: "Casa Romeo",
+                dateTime: dateAt(daysFromToday: 3, hour: 11),
+                description: "Elegant Sunday brunch with live jazz music.",
+                area: "West Bay",
+                musicGenre: "Jazz",
+                performer: "Brunch Jazz Ensemble"
             )
         ]
     }
